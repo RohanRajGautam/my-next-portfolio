@@ -8,10 +8,10 @@ const AboutMe = () => {
       </h2>
 
       <p className="text-base text-gray-400">
-        I'm a Software Engineer based in Kathmandu, Nepal, with over 4 years of
-        experience in Mobile and Web Development. I prefer to keep learning,
-        continue challenging myself, and do interesting things that matter. I am
-        a strong believer that learning never ends.
+        Hi there! I'm a Senior Software Engineer residing in Kathmandu, Nepal,
+        with over 5 years of experience in Mobile and Web Development. I thrive
+        on clean architecture, pixel-perfect designs, and agile methodologies.
+        Let's build something amazing together!
       </p>
     </AnimationContainer>
   );
