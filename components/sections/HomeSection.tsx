@@ -16,7 +16,7 @@ const HomeSection = () => {
       <Hero />
 
       <CurrentFavTech />
-      <CurrentLearning />
+      {/* <CurrentLearning /> */}
 
       <div className="w-full flex flex-col items-start">
         <AboutMe />
