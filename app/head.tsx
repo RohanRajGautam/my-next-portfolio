@@ -33,6 +33,7 @@ const Head = () => {
       <link rel="canonical" href={`https://rohanrajgautam.com.np${pathname}`} />
       <link rel="me" href="mailto:rohanrajgautam@gmail.com" />
       <meta property="og:type" content={meta.type} />
+      <meta property="og:image" content={'/twitter-img.png'} />
       <meta property="og:site_name" content="Rohan Raj Gautam" />
       <meta property="og:description" content={meta.description} />
       <meta property="og:title" content={meta.title} />
