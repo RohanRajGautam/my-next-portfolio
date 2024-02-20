@@ -33,7 +33,10 @@ const Head = () => {
       <link rel="canonical" href={`https://rohanrajgautam.com.np${pathname}`} />
       <link rel="me" href="mailto:rohanrajgautam@gmail.com" />
       <meta property="og:type" content={meta.type} />
-      <meta property="og:image" content={'/twitter-img.png'} />
+      <meta
+        property="og:image"
+        content={'https://rohanrajgautam.com.np/twitter-img.png'}
+      />
       <meta property="og:site_name" content="Rohan Raj Gautam" />
       <meta property="og:description" content={meta.description} />
       <meta property="og:title" content={meta.title} />
@@ -41,7 +44,10 @@ const Head = () => {
       <meta name="twitter:site" content="@rohanrajgautam" />
       <meta name="twitter:title" content={meta.title} />
       <meta name="twitter:description" content={meta.description} />
-      <meta name="twitter:image" content={'/twitter-img.png'} />
+      <meta
+        name="twitter:image"
+        content={'https://rohanrajgautam.com.np/twitter-img.png'}
+      />
     </>
   );
 };
