@@ -40,6 +40,7 @@ const Head = () => {
       <meta name="twitter:site" content="@rohanrajgautam" />
       <meta name="twitter:title" content={meta.title} />
       <meta name="twitter:description" content={meta.description} />
+      <meta name="twitter:image" content={'/twitter-img.png'} />
     </>
   );
 };
