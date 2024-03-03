@@ -19,9 +19,9 @@ const ContactMe = () => {
             className="w-full"
           >
             <div className="rounded border border-gray-800 hover:border-gray-900 bg-[#080809] p-4 shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] sm:p-6 transition ease">
-              <h6 className="font-bold text-1xl tracking-tight text-white text-start">
+              <p className="font-bold text-1xl tracking-tight text-white text-start">
                 Email
-              </h6>
+              </p>
               <p className="text-base mt-2 text-gray-400">
                 rohanrajgautam@gmail.com
               </p>
@@ -35,9 +35,9 @@ const ContactMe = () => {
             className="w-full"
           >
             <div className="rounded border border-gray-800 hover:border-gray-900 bg-[#080809] p-4 shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] sm:p-6 transition ease">
-              <h6 className="font-bold text-1xl tracking-tight text-white text-start">
+              <p className="font-bold text-1xl tracking-tight text-white text-start">
                 Phone
-              </h6>
+              </p>
               <p className="text-base mt-2 text-gray-400">+977 986 182 86 33</p>
             </div>
           </a>
