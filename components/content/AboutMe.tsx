@@ -2,7 +2,6 @@ import AnimationContainer from '../utils/AnimationContainer';
 import { YEARS_OF_EXPERIENCE } from '../utils/const';
 
 const AboutMe = () => {
-  console.log(YEARS_OF_EXPERIENCE, 'YEARS_OF_EXPERIENCE');
   return (
     <AnimationContainer customClassName="w-full mb-16">
       <h2 className="font-bold text-2xl tracking-tight mb-8 text-white text-center lg:text-start">
