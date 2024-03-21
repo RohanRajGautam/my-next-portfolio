@@ -1,10 +1,12 @@
-import CurrentTimeLineExp from '../content/CurrentTimeLineExp';
-import AnimationContainer from '../utils/AnimationContainer';
-import SectionContainer from '../utils/SectionContainer';
-import ShowSkills from '../utils/ShowSkills';
-import TitleSectionPageContainer from '../utils/TitleSectionPageContainer';
 import ProcessWork from '../content/ProcessWork';
+import CurrentTimeLineExp from '../content/CurrentTimeLineExp';
+
 import { skills } from '../utils/mySkills';
+import ShowSkills from '../utils/ShowSkills';
+import { YEARS_OF_EXPERIENCE } from '../utils/const';
+import SectionContainer from '../utils/SectionContainer';
+import AnimationContainer from '../utils/AnimationContainer';
+import TitleSectionPageContainer from '../utils/TitleSectionPageContainer';
 
 const AboutSection = () => {
   return (
@@ -15,8 +17,8 @@ const AboutSection = () => {
         <AnimationContainer customClassName="w-full flex flex-col gap-5 mb-8">
           <p className="text-base text-gray-400">
             Hello! I'm a seasoned Software Engineer residing in Kathmandu,
-            Nepal, with over 4 years of experience in Mobile and Web
-            Development. My expertise spans a wide array of technologies
+            Nepal, with over {YEARS_OF_EXPERIENCE} years of experience in Mobile
+            and Web Development. My expertise spans a wide array of technologies
             including JavaScript, TypeScript, React Native, React.js, Next.js,
             Node.js, PostgreSQL, MongoDB, Firebase, REST API, and GraphQL.
           </p>
