@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import AnimationContainer from '../utils/AnimationContainer';
+import heroImage from '../../public/rohan.jpg';
 
 const Hero = () => {
   return (
@@ -20,7 +21,8 @@ const Hero = () => {
           alt="Rohan Raj Gautam"
           height={176}
           width={176}
-          src="/rohan.jpg"
+          src={heroImage}
+          placeholder="blur"
           sizes="30vw"
           priority
           className="rounded-[8px] filter backdrop-grayscale-0 hover:grayscale-10 transition ease"
