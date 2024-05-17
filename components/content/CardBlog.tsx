@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import { getPlaiceholder } from 'plaiceholder';
+
 import { CardBlogProps } from '@/types';
 
 import ShowSkills from '../utils/ShowSkills';
@@ -6,7 +8,23 @@ import AnimationContainer from '../utils/AnimationContainer';
 
 import ExternalLink from '../ui/ExternalLink';
 
-const CardBlog = ({
+const getImage = async (src: string) => {
+  const buffer = await fetch(src).then(async (res) =>
+    Buffer.from(await res.arrayBuffer())
+  );
+
+  const {
+    metadata: { height, width },
+    ...plaiceholder
+  } = await getPlaiceholder(buffer, { size: 10 });
+
+  return {
+    ...plaiceholder,
+    img: { src, height, width }
+  };
+};
+
+const CardBlog = async ({
   title,
   content,
   link,
@@ -15,16 +33,20 @@ const CardBlog = ({
   like,
   comment
 }: CardBlogProps) => {
+  const { base64, img } = await getImage(thumbnail);
+
   return (
     <AnimationContainer customClassName="w-full h-30 flex flex-col justify-center items-center rounded border border-gray-800 hover:border-gray-900 bg-[#080809] shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all ease">
       <ExternalLink href={link} customClassName="w-full">
         <div className="w-full flex flex-col justify-center items-start rounded gap-3">
           <Image
-            src={thumbnail || '/rrg.png'}
+            src={img.src || '/rrg.png'}
             height={400}
             width={800}
             alt="thumbnail"
             priority
+            placeholder="blur"
+            blurDataURL={base64}
           />
 
           <div className="p-4 flex flex-col gap-4">
