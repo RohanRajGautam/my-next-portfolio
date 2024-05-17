@@ -6,6 +6,7 @@ import CurrentTimeLineExp from '../content/CurrentTimeLineExp';
 import FavProjects from '../content/FavProjects';
 import Hero from '../content/Hero';
 import AnimationContainer from '../utils/AnimationContainer';
+import { YEARS_OF_EXPERIENCE } from '../utils/const';
 import { skills } from '../utils/mySkills';
 import SectionContainer from '../utils/SectionContainer';
 import ShowSkills from '../utils/ShowSkills';
@@ -31,9 +32,10 @@ const HomeSection = () => {
           </h2>
 
           <p className="text-base text-gray-400">
-            In my journey spanning over 6 years in programming, I've delved into
-            various programming languages, libraries, and tools, exploring both
-            Backend and Frontend technology stacks.
+            In my journey spanning over {YEARS_OF_EXPERIENCE + 2} years in
+            programming, I've delved into various programming languages,
+            libraries, and tools, exploring both Backend and Frontend technology
+            stacks.
           </p>
 
           <p className="text-base text-gray-400">
