@@ -43,7 +43,7 @@ const ContactMe = () => {
           </a>
         </div>
 
-        <div className="w-full flex justify-center items-center flex-col">
+        <div className="w-full flex justify-center items-center flex-col overflow-hidden">
           <form
             action="https://formspree.io/f/rohanrajgautam@gmail.com"
             method="POST"

@@ -149,6 +149,14 @@ const allProjectsInfo = [
     category: 'react - redux - reduxsaga - firebase - node.js',
     repo: 'https://github.com/RohanRajGautam/rrg-clothing',
     link: 'https://rrg-clothing.herokuapp.com/'
+  },
+  {
+    id: '19',
+    title: 'Lineage Journey - Timeline',
+    des: 'Lineage Journey Timeline is graph based features for studying history of christianity.',
+    category: 'react - gatsby - apollo - gsap - prismic - node.js',
+    repo: '',
+    link: 'https://lineagejourney.com/timeline/'
   }
 ];
 
@@ -191,16 +199,18 @@ const SearchAllProjects = () => {
       </AnimationContainer>
 
       <article className="w-full flex justify-center items-center content-center flex-wrap gap-6 mx-auto">
-        {resultSearch.map(({ id, title, des, category, repo, link }) => (
-          <CardProject
-            key={id}
-            title={title}
-            des={des}
-            category={category}
-            repo={repo}
-            link={link}
-          />
-        ))}
+        {resultSearch
+          .reverse()
+          .map(({ id, title, des, category, repo, link }) => (
+            <CardProject
+              key={id}
+              title={title}
+              des={des}
+              category={category}
+              repo={repo}
+              link={link}
+            />
+          ))}
       </article>
     </>
   );

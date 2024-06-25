@@ -36,8 +36,8 @@ const CardBlog = async ({
   const { base64, img } = await getImage(thumbnail);
 
   return (
-    <AnimationContainer customClassName="w-full h-30 flex flex-col justify-center items-center rounded border border-gray-800 hover:border-gray-900 bg-[#080809] shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all ease">
-      <ExternalLink href={link} customClassName="w-full">
+    <AnimationContainer customClassName="w-full h-30 flex flex-col justify-center items-center rounded border border-gray-800 hover:border-gray-800 bg-[#080809] shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all ease">
+      <ExternalLink href={link}>
         <div className="w-full flex flex-col justify-center items-start rounded gap-3">
           <Image
             src={img.src || '/rrg.png'}
@@ -57,9 +57,11 @@ const CardBlog = async ({
             <p className="text-base text-gray-400">{content}</p>
 
             <div className="w-full flex justify-between items-center flex-wrap flex-col lg:flex-row gap-5">
-              <div className="flex justify-center items-start gap-3">
-                <ShowSkills skills={tags.replace(/,/g, ' - ')} />
-              </div>
+              {tags && tags.length > 0 && (
+                <div className="flex justify-start items-start gap-2 flex-wrap">
+                  <ShowSkills skills={tags.split(',')} />
+                </div>
+              )}
 
               <div className="flex justify-center items-end gap-3">
                 <div className="gap-1 text-white inline-flex items-center rounded-lg bg-black p-2 hover:bg-gray-900 transition-all ease">

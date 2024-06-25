@@ -32,10 +32,9 @@ export interface CardProjectProps {
   id?: string;
   title: string;
   des: string;
-  // category: string[];
-  category: string; // FIX THIS
-  repo: string;
-  link: string;
+  category?: string;
+  repo?: string;
+  link?: string;
 }
 
 export interface CardBlogProps {
