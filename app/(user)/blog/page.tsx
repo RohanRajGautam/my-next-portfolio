@@ -7,7 +7,7 @@ const Blog = async () => {
   const res = await fetch(
     'https://dev.to/api/articles?username=rohanrajgautam',
     {
-      next: { revalidate: 3600 } // Will revalidate every 1 hour
+      next: { revalidate: 600 } // Will revalidate every 10 minutes
     }
   );
 
