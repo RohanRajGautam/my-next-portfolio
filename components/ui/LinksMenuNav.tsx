@@ -28,7 +28,11 @@ const LinksMenu = [
   }
 ];
 
-const LinksMenuNav = () => {
+interface LinksMenuNavProps {
+  toggleMenu: () => void;
+}
+
+const LinksMenuNav: React.FC<LinksMenuNavProps> = ({ toggleMenu }) => {
   return (
     <>
       {LinksMenu.map(({ name, path, delay }) => (
@@ -37,7 +41,7 @@ const LinksMenuNav = () => {
           className="border-gray-700 text-gray-100 text-sm font-semibold"
           style={{ transitionDelay: delay }}
         >
-          <Link href={path} className="pb-4">
+          <Link href={path} className="pb-4" onClick={toggleMenu}>
             {name}
           </Link>
         </li>
