@@ -48,9 +48,9 @@ const AboutSection = () => {
 
           <p className="text-base text-gray-400">
             A look at all the programming languages, libraries, and tools I've
-            worked with, I started programming about 4 years ago. I have tried a
-            few programming languages and technology stack, both Backend and
-            Frontend.
+            worked with, I started programming about {YEARS_OF_EXPERIENCE} years
+            ago. I have tried a few programming languages and technology stack,
+            both Backend and Frontend.
           </p>
 
           <p className="text-base text-gray-400">

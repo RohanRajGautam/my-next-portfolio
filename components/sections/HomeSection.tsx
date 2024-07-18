@@ -32,7 +32,7 @@ const HomeSection = () => {
           </h2>
 
           <p className="text-base text-gray-400">
-            In my journey spanning over {YEARS_OF_EXPERIENCE + 2} years in
+            In my journey spanning over {YEARS_OF_EXPERIENCE} years in
             programming, I've delved into various programming languages,
             libraries, and tools, exploring both Backend and Frontend technology
             stacks.
