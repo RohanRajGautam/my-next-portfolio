@@ -20,13 +20,13 @@ const CurrentTimeLineExp = () => {
 
         <TimelineEvent.Description>
           As a Lead React Native Engineer, I excelled in architecting and
-          developing robust, cross-platform mobile applications. With a deep
-          understanding of React Native and its ecosystem, I led the design and
-          implementation of complex features, ensuring optimal performance and
-          user experience. My role involved collaborating closely with
-          cross-functional teams and actively contributing to code reviews and
-          technical decisions to deliver high-quality and innovative mobile
-          solutions.
+          developing robust cross-platform mobile applications for both iOS and
+          Android. With a deep understanding of React Native and its ecosystem,
+          I led the design and implementation of complex features, ensuring
+          optimal performance and an exceptional user experience. My role
+          involved close collaboration with cross-functional teams and active
+          participation in technical decisions, contributing to the development
+          of high-quality and innovative mobile solutions.
         </TimelineEvent.Description>
       </TimelineEvent>
 
