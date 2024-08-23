@@ -18,7 +18,7 @@ const LinksMenu = [
   },
   {
     name: 'Blog',
-    path: '/blog',
+    path: '/blogs',
     delay: '225ms'
   },
   {

@@ -115,7 +115,7 @@ const Footer = () => {
 
         <div className="flex flex-col space-y-4">
           <Link
-            href="/blog"
+            href="/blogs"
             className="flex items-center gap-2 text-gray-500 hover:text-gray-600 transition ease"
           >
             <svg

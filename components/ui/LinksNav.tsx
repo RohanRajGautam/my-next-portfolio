@@ -22,7 +22,7 @@ export const navItemsSelected: { [key: string]: NavItemHeaderAnimation } = {
     y: -3,
     w: '75px'
   },
-  '/blog': {
+  '/blogs': {
     name: 'blog',
     x: 209,
     y: -3,
