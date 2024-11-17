@@ -28,7 +28,7 @@
     "clsx": "^1.2.1",
     "embla-carousel-react": "^7.0.9",
     "framer-motion": "^8.5.4",
-    "next": "^13.3.0",
+    "next": "^14.1.1",
     "plaiceholder": "^3.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
