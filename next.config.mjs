@@ -8,8 +8,8 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'media.dev.to'
-      }
+        hostname: '*.dev.to',
+      },
     ]
   }
 };
