@@ -10,6 +10,15 @@ export const allProjectsInfo = [
   },
   {
     id: '2',
+    title: 'OTS Academy',
+    des: '',
+    category: 'next js - typescript - mongodb - nivo - tailwind',
+    repo: '',
+    link: 'https://ontourism.academy/',
+    image: '/projects/ots.png'
+  },
+  {
+    id: '3',
     title: 'Webpoint',
     des: '',
     category: 'typescript - next js - zustand - tailwind - gsap - lottie - framer motion - apollo',
@@ -18,7 +27,7 @@ export const allProjectsInfo = [
     image: '/projects/webpoint.png'
   },
   {
-    id: '3',
+    id: '4',
     title: 'Lineage Journey',
     des: '',
     category: 'javascript - gatsby - react - apollo - prismic - node.js - stripe - graphql',
@@ -27,7 +36,7 @@ export const allProjectsInfo = [
     image: '/projects/lineage-journey.png'
   },
   {
-    id: '4',
+    id: '5',
     title: 'Luminate Mobile App',
     des: '',
     category: 'typescript - react native - nest js - mongo db - android - ios',
@@ -36,22 +45,13 @@ export const allProjectsInfo = [
     image: '/projects/luminate.jpg'
   },
   {
-    id: '5',
+    id: '6',
     title: 'Ellen4all Backend',
     des: '',
     category: 'django - postgres - python - docker - celery - redis - vue - nuxt js',
     repo: '',
-    link: 'https://www.ellen4all.org/',
+    link: 'https://tegw.egwwritings.org/',
     image: '/projects/ellen4all.png'
-  },
-  {
-    id: '6',
-    title: 'CIBER',
-    des: '',
-    category: 'react - python - flask - docker - zustand',
-    repo: '',
-    link: '',
-    image: ''
   },
   {
     id: '7',
@@ -83,11 +83,11 @@ export const allProjectsInfo = [
   },
   {
     id: '10',
-    title: 'OTS Academy',
+    title: 'CIBER',
     des: '',
-    category: 'next js - typescript - mongodb - nivo - tailwind',
+    category: 'react - python - flask - docker - zustand',
     repo: '',
-    link: 'https://ontourism.academy/',
-    image: '/projects/ots.png'
+    link: 'http://ciber.webpoint.io/',
+    image: ''
   },
 ];
