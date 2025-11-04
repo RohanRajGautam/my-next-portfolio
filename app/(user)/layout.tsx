@@ -5,6 +5,7 @@ import Header from '@/components/ui/Header';
 import Footer from '@/components/ui/Footer';
 import Head from '../head';
 import FlareCursor from '@/components/ui/FlareCursor';
+import CometStarsTrail from '@/components/ui/CometStarsTrail';
 import GoogleAnalytics from '@/components/utils/GoogleAnalytics';
 
 const graphik = local({
@@ -43,6 +44,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <Header />
 
         <main className="flex flex-col justify-center items-center mx-auto">
+          <CometStarsTrail />
           <FlareCursor />
 
           {children}

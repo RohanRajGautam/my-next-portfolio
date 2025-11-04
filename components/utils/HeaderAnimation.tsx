@@ -21,11 +21,12 @@ const HeaderAnimation = ({ children }: { children: React.ReactNode; }) => {
     <motion.header
       className={classNames(
         scrollPosition > 0 ? 'backdrop-blur-md bg-black/30' : '',
-        'w-full sticky top-0 flex flex-col justify-center items-center z-10 transition ease-in-out mx-auto'
+        'w-full sticky top-0 flex flex-col justify-center items-center z-50 transition ease-in-out mx-auto'
       )}
       initial={animation.hide}
       animate={animation.show}
       transition={{ delay: 0.5 }}
+      style={{ pointerEvents: 'auto' }}
     >
       {children}
     </motion.header>
