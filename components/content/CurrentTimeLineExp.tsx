@@ -19,14 +19,20 @@ const CurrentTimeLineExp = () => {
         </TimelineEvent.Title>
 
         <TimelineEvent.Description>
-          As a Lead React Native Engineer, I excelled in architecting and
-          developing robust cross-platform mobile applications for both iOS and
-          Android. With a deep understanding of React Native and its ecosystem,
-          I led the design and implementation of complex features, ensuring
-          optimal performance and an exceptional user experience. My role
-          involved close collaboration with cross-functional teams and active
-          participation in technical decisions, contributing to the development
-          of high-quality and innovative mobile solutions.
+          As a Lead Mobile Developer and Full Stack Engineer, I led the
+          architecture, development, and delivery of robust cross-platform
+          mobile applications for iOS and Android using React Native. Beyond
+          mobile development, I contributed across the full technology
+          stack—designing scalable backend services, integrating APIs, and
+          optimizing overall system performance. I drove the implementation of
+          complex features with a focus on maintainability, performance, and
+          exceptional user experience. My role encompassed technical leadership,
+          mentoring team members, and collaborating closely with
+          cross-functional teams—including design, backend, and product—to
+          ensure alignment and delivery of high-quality, innovative mobile and
+          web solutions. I actively participated in architectural decisions,
+          code reviews, and strategic planning to ensure technical excellence
+          and scalability across the product ecosystem.
         </TimelineEvent.Description>
       </TimelineEvent>
 

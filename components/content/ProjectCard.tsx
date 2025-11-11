@@ -22,10 +22,10 @@ const ProjectCard = ({
 }: ProjectCardProps) => {
 
   return (
-    <AnimationContainer customClassName="rounded-lg border border-gray-800 hover:border-gray-500 bg-[#080809] shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300 ease-in-out p-4">
+    <AnimationContainer customClassName="rounded-lg border border-gray-800 hover:border-gray-500 bg-[#080809] shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300 ease-in-out">
       <div className="w-full flex flex-col gap-4">
         <ExternalLink href={link}>
-          <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-gray-800">
+          <div className="relative w-full aspect-video rounded-t-lg overflow-hidden bg-gray-800">
             {!image && (
               <div className="absolute inset-0 flex items-center justify-center bg-gray-800">
                 <div className="text-center p-4">
@@ -53,14 +53,15 @@ const ProjectCard = ({
               <Image
                 src={image}
                 alt={title}
+                priority
                 fill
-                className='object-cover transition-opacity duration-300'
+                className='object-cover object-top transition-opacity duration-300'
               />
             )}
           </div>
         </ExternalLink>
 
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-1 px-4 pb-2">
           <h3 className="font-semibold text-xl text-white">{title}</h3>
           <p className="text-gray-400 text-sm line-clamp-3">{des}</p>
 

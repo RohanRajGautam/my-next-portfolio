@@ -10,6 +10,15 @@ export const allProjectsInfo = [
   },
   {
     id: '2',
+    title: 'Stockmore - Stock Photo Platform',
+    des: '',
+    category: 'typescript - next js - tailwind - shadcn',
+    repo: '',
+    link: 'https://www.stockmore.com/',
+    image: '/projects/stockmore.png'
+  },
+  {
+    id: '3',
     title: 'OTS Academy',
     des: '',
     category: 'next js - typescript - mongodb - nivo - tailwind',
@@ -18,7 +27,7 @@ export const allProjectsInfo = [
     image: '/projects/ots.png'
   },
   {
-    id: '3',
+    id: '4',
     title: 'Webpoint',
     des: '',
     category: 'typescript - next js - zustand - tailwind - gsap - lottie - framer motion - apollo',
@@ -27,7 +36,7 @@ export const allProjectsInfo = [
     image: '/projects/webpoint.png'
   },
   {
-    id: '4',
+    id: '5',
     title: 'Lineage Journey',
     des: '',
     category: 'javascript - gatsby - react - apollo - prismic - node.js - stripe - graphql',
@@ -36,7 +45,7 @@ export const allProjectsInfo = [
     image: '/projects/lineage-journey.png'
   },
   {
-    id: '5',
+    id: '6',
     title: 'Luminate Mobile App',
     des: '',
     category: 'typescript - react native - nest js - mongo db - android - ios',
@@ -45,7 +54,7 @@ export const allProjectsInfo = [
     image: '/projects/luminate.jpg'
   },
   {
-    id: '6',
+    id: '7',
     title: 'Ellen4all Backend',
     des: '',
     category: 'django - postgres - python - docker - celery - redis - vue - nuxt js',
@@ -54,7 +63,7 @@ export const allProjectsInfo = [
     image: '/projects/ellen4all.png'
   },
   {
-    id: '7',
+    id: '8',
     title: 'Sharing hope',
     des: '',
     category: 'react - typescript - next js - react - redux - tailwind - firebase',
@@ -63,7 +72,7 @@ export const allProjectsInfo = [
     image: '/projects/sharing-hope.png'
   },
   {
-    id: '8',
+    id: '9',
     title: 'The Great Controversy',
     des: '',
     category: 'react - typescript - next js - redux - tailwind - gsap - firebase',
@@ -73,7 +82,7 @@ export const allProjectsInfo = [
   },
 
   {
-    id: '9',
+    id: '10',
     title: 'Damask Cakes',
     des: '',
     category: 'react - typescript - next js - stripe - scss',
@@ -82,7 +91,7 @@ export const allProjectsInfo = [
     image: '/projects/damask-cakes.png'
   },
   {
-    id: '10',
+    id: '11',
     title: 'CIBER',
     des: '',
     category: 'react - python - flask - docker - zustand',
