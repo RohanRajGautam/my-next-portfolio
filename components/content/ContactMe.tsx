@@ -23,12 +23,12 @@ const ContactMe = () => {
                 Email
               </p>
               <p className="text-base mt-2 text-gray-400">
-                rohanrajgautam@gmail.com
+                rohangautamdev@gmail.com
               </p>
             </div>
           </a>
 
-          <a
+          {/* <a
             href="https://walink.co/2369d5"
             target="_blank"
             rel="noreferrer"
@@ -40,7 +40,7 @@ const ContactMe = () => {
               </p>
               <p className="text-base mt-2 text-gray-400">+977 986 182 86 33</p>
             </div>
-          </a>
+          </a> */}
         </div>
 
         <div className="w-full flex justify-center items-center flex-col overflow-hidden">
