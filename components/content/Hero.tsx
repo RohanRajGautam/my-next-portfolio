@@ -11,8 +11,7 @@ const Hero = () => {
         </h1>
 
         <h2 className="flex items-center gap-2 text-1xl lg:text-1xl text-gray-200 mb-8 mx-auto lg:mx-0">
-          <span className="font-semibold">WEB AND MOBILE</span>
-          DEVELOPER
+          Senior Software Engineer (Full-Stack Web & Mobile)
         </h2>
       </AnimationContainer>
 
