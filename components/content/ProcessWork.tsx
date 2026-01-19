@@ -3,38 +3,38 @@ import AnimationContainer from '../utils/AnimationContainer';
 const myWorkProcess = [
   {
     id: '1',
-    title: 'Meeting',
-    des: 'The first step is to hold a meeting to learn about your expectations, objectives and project requirements. It is important to discuss the scope of the project, the resources required and the project delivery schedule.',
+    title: 'Discovery & Planning',
+    des: 'I start by understanding the problem we\'re solving—talking with stakeholders, gathering requirements, and identifying technical constraints. This phase is about asking the right questions, defining success metrics, and creating a roadmap that balances business goals with technical feasibility.',
     delay: 0.3
   },
   {
     id: '2',
-    title: 'Prototyping',
-    des: 'With the action plan already defined, the web designs are made. Through Figma, mockups will be presented so that you have an image of what will be your website with the chosen colors and fonts, adapted for all devices and prioritizing usability.',
+    title: 'Architecture & Design',
+    des: 'Before writing any code, I design the system architecture—choosing the right tech stack, defining data models, planning API contracts, and thinking through scalability. I create technical specs and collaborate with the team to make sure everyone\'s aligned on the approach.',
     delay: 0.4
   },
   {
     id: '3',
-    title: 'SEO and content',
-    des: 'The next step is to implement an SEO and content strategy to help improve a website´s visibility in search engine results, which can generate more traffic and improve the quality of visitors.In addition, a well- structured content strategy can also contribute to better and longer - lasting results.',
+    title: 'Development & Iteration',
+    des: 'This is where the building happens. I write clean, maintainable code following best practices, set up CI/CD pipelines, and work in sprints with regular check-ins. I believe in shipping early and iterating based on feedback rather than waiting for perfection.',
     delay: 0.5
   },
   {
     id: '4',
-    title: 'Development phase',
-    des: 'Once the design has been approved, the layout will be designed in the test environment and all the functionalities will be implemented so that the website takes shape. In the case that a website with SEO and content has been contracted, they will also be applied in this phase.',
+    title: 'Code Review & Collaboration',
+    des: 'Engineering is a team sport. I actively participate in code reviews—both giving and receiving feedback. I mentor junior developers, pair program when needed, and make sure our codebase stays healthy and our team keeps learning.',
     delay: 0.6
   },
   {
     id: '5',
-    title: 'Test phase',
-    des: 'You want a beautiful website, but you also want it to work perfectly, so in this phase we do all kinds of tests to make sure it´s fast, accessible, intuitive, secure, with a good responsive design, etc.',
+    title: 'Testing & Quality Assurance',
+    des: 'I take quality seriously. This means writing unit and integration tests, doing manual QA for edge cases, performance testing, and making sure everything works smoothly across different devices and environments. The goal is to catch issues before users do.',
     delay: 0.7
   },
   {
     id: '6',
-    title: 'Migration',
-    des: 'You are done. Congratulations, you have a website created by me. You will also have the option to hire my web maintenance service, so that it is always updated and ready.',
+    title: 'Deployment & Monitoring',
+    des: 'Launch day is exciting, but it\'s just the beginning. I handle deployments, set up monitoring and analytics, track performance metrics, and stay ready to respond if issues come up. Post-launch, I gather user feedback and data to inform the next iteration.',
     delay: 0.8
   },
 ];
@@ -44,7 +44,7 @@ const ProcessWork = () => {
     <AnimationContainer customClassName='w-full mb-4'>
 
       <h2 className='font-bold text-2xl md:text-2xl tracking-tight mb-12 text-white text-start'>
-        My work process
+        How I work
       </h2>
 
       <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8 mx-auto'>
