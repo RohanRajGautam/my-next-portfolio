@@ -32,7 +32,7 @@ const Head = () => {
         content={`https://rohanrajgautam.com.np${pathname}`}
       />
       <link rel="canonical" href={`https://rohanrajgautam.com.np${pathname}`} />
-      <link rel="me" href="mailto:rohanrajgautam@gmail.com" />
+      <link rel="me" href="mailto:hi@rrg.com.np" />
       <meta property="og:type" content={meta.type} />
       <meta
         property="og:image"

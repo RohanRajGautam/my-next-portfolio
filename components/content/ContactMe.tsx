@@ -107,7 +107,7 @@ const ContactMe = () => {
       <div className="w-full flex justify-between items-center flex-col mx-auto max-w-screen-xl">
         <div className="w-full flex justify-between items-center flex-col lg:flex-row gap-6 mb-10">
           <a
-            href="mailto:rohanrajgautam@gmail.com"
+            href="mailto:hi@rrg.com.np"
             target="_blank"
             rel="noreferrer"
             className="w-full"
