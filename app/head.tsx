@@ -14,7 +14,7 @@ const Head = () => {
     title: `Rohan Raj Gautam ${
       pathname === '/' ? '' : '· ' + titleFixedToShow
     }`,
-    description: `Hi there! I'm a Senior Software Engineer residing in Kathmandu, Nepal, with over ${YEARS_OF_EXPERIENCE} years of experience in Mobile and Web Development. I thrive on clean architecture, pixel-perfect designs, and agile methodologies. Let's build something amazing together!`,
+    description: `Hi there! I'm a Software Engineer residing in Kathmandu, Nepal, with over ${YEARS_OF_EXPERIENCE} years of experience in Mobile and Web Development. I thrive on clean architecture, pixel-perfect designs, and agile methodologies. Let's build something amazing together!`,
     keywords:
       'Rohan Raj Gautam, Rohan Gautam, RRG, Rohan Raj Gautam portfolio, Rohan Gautam portfolio, Rohan Raj Gautam github, Rohan Gautam github, Rohan Raj Gautam LinkedIn, Web, Javascript, Typescript, React, React Native.',
     type: 'website'

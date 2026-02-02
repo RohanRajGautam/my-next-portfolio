@@ -117,7 +117,7 @@ const ContactMe = () => {
                 Email
               </p>
               <p className="text-base mt-2 text-gray-400">
-                rohangautamdev@gmail.com
+                hi@rrg.com.np
               </p>
             </div>
           </a>

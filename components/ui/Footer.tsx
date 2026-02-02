@@ -97,7 +97,7 @@ const Footer = () => {
             LinkedIn
           </ExternalLink>
 
-          <ExternalLink href="https://twitter.com/rohanrajgautam">
+          <ExternalLink href="https://x.com/rohanrajgautam">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -130,7 +130,7 @@ const Footer = () => {
           </Link>
 
           <Link
-            href="/contact"
+            href="/#contact"
             className="flex items-center gap-2 text-gray-500 hover:text-gray-600 transition ease"
           >
             <svg

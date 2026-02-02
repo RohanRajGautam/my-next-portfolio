@@ -16,10 +16,10 @@ const AboutSection = () => {
 
         <AnimationContainer customClassName="w-full flex flex-col gap-5 mb-8">
           <p className="text-base text-gray-400">
-            Hey there! I'm a software engineer based in Kathmandu, Nepal, with {YEARS_OF_EXPERIENCE}+ years
-            of building things for the web and mobile. I work primarily with JavaScript and TypeScript,
-            crafting applications using React Native, React.js, Next.js, and Node.js. On the backend,
-            I've got experience with PostgreSQL, MongoDB, GraphQL, and REST APIs, plus I'm comfortable
+            Hey there! I'm a Software Engineer based in Kathmandu, Nepal, with {YEARS_OF_EXPERIENCE}+ years
+            of building things for the web and mobile. I work primarily with TypeScript/JavaScript and Python framework,
+            crafting applications using React Native, React.js, Next.js. On the backend,
+            I've got experience with Node.js, Nest.js, Django, Flask, PostgreSQL, MongoDB, GraphQL, and REST APIs, plus I'm comfortable
             navigating the AWS ecosystem.
           </p>
 

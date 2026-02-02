@@ -9,7 +9,7 @@ const AboutMe = () => {
       </h2>
 
       <p className="text-base text-gray-400">
-        Hi there! I'm a Senior Software Engineer residing in Kathmandu, Nepal,
+        Hi there! I'm a Software Engineer residing in Kathmandu, Nepal,
         with over {YEARS_OF_EXPERIENCE} years of experience in Mobile and Web
         Development. I thrive on clean architecture, pixel-perfect designs, and
         agile methodologies. Let's build something amazing together!
