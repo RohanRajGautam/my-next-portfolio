@@ -7,7 +7,7 @@ import LinksNav, { navItemsSelected } from './LinksNav';
 const NavItem = () => {
   let pathname = usePathname() as string;
 
-  if (pathname.includes('/blogs/')) pathname = '/blogs';
+  if (pathname && pathname.includes('/blogs/')) pathname = '/blogs';
 
   return (
     <>
