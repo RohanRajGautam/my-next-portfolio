@@ -4,7 +4,7 @@ const ExternalLink = ({ href, customClassName = 'flex items-center gap-2 text-gr
   <a
     className={customClassName}
     target='_blank'
-    rel='noreferrer'
+    rel='noopener noreferrer'
     href={href}
   >
     {children}

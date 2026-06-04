@@ -8,107 +8,78 @@ import AnimationContainer from '../utils/AnimationContainer';
 
 import ExternalLink from '../ui/ExternalLink';
 
+// The social card is 1200x630. We try to generate a blur placeholder from the
+// remote image, but never let a failed fetch break the card (or the page).
 const getImage = async (src: string) => {
-  const buffer = await fetch(src).then(async (res) =>
-    Buffer.from(await res.arrayBuffer())
-  );
+  try {
+    const buffer = await fetch(src).then(async (res) => {
+      if (!res.ok) throw new Error(`Image ${res.status}`);
+      return Buffer.from(await res.arrayBuffer());
+    });
 
-  const {
-    metadata: { height, width },
-    ...plaiceholder
-  } = await getPlaiceholder(buffer, { size: 10 });
+    const {
+      metadata: { height, width },
+      ...plaiceholder
+    } = await getPlaiceholder(buffer, { size: 10 });
 
-  return {
-    ...plaiceholder,
-    img: { src, height, width }
-  };
+    return {
+      base64: plaiceholder.base64,
+      img: { src, height, width }
+    };
+  } catch {
+    return { base64: undefined, img: { src, height: 630, width: 1200 } };
+  }
 };
 
 const CardBlog = async ({
   title,
-  content,
-  link,
-  thumbnail,
-  tags,
-  like,
-  comment
+  description,
+  url,
+  image,
+  readingTime,
+  category,
+  tags
 }: CardBlogProps) => {
-  const { base64, img } = await getImage(thumbnail);
+  const { base64, img } = await getImage(image);
 
   return (
-    <AnimationContainer customClassName="w-full h-30 flex flex-col justify-center items-center rounded border border-gray-800 hover:border-gray-800 bg-[#080809] shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all ease">
-      <ExternalLink href={link}>
-        <div className="w-full flex flex-col justify-center items-start rounded gap-3">
+    <AnimationContainer customClassName="w-full h-full flex flex-col justify-start items-center rounded border border-gray-800 hover:border-gray-500 bg-[#080809] shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all ease overflow-hidden">
+      <ExternalLink
+        href={url}
+        customClassName="w-full h-full flex flex-col text-inherit"
+      >
+        <div className="w-full h-full flex flex-col justify-start items-start rounded gap-3">
           <Image
             src={img.src || '/rrg.png'}
-            height={400}
-            width={800}
-            alt="thumbnail"
-            priority
-            placeholder="blur"
+            height={img.height}
+            width={img.width}
+            alt={title}
+            className="w-full h-auto object-cover"
+            placeholder={base64 ? 'blur' : 'empty'}
             blurDataURL={base64}
           />
 
-          <div className="p-4 flex flex-col gap-4">
-            <h3 className="text-2xl lg:text-2xl font-medium text-white">
+          <div className="p-4 flex flex-col gap-3 flex-1">
+            <h3 className="text-xl lg:text-2xl font-medium text-white">
               {title}
             </h3>
 
-            <p className="text-base text-gray-400">{content}</p>
+            <p className="text-base text-gray-400 flex-1">{description}</p>
 
-            <div className="w-full flex justify-between items-center flex-wrap flex-col lg:flex-row gap-5">
-              {tags && tags.length > 0 && (
-                <div className="flex justify-start items-start gap-2 flex-wrap">
-                  <ShowSkills skills={tags.split(',')} />
+            <div className="w-full flex flex-col gap-3">
+              {(readingTime || category) && (
+                <div className="flex items-center gap-2 text-sm text-gray-500">
+                  {readingTime && <span>{readingTime}</span>}
+                  {readingTime && category && <span aria-hidden>·</span>}
+                  {category && <span>{category}</span>}
                 </div>
               )}
 
-              <div className="flex justify-center items-end gap-3">
-                <div className="gap-1 text-white inline-flex items-center rounded-lg bg-black p-2 hover:bg-gray-900 transition-all ease">
-                  <svg
-                    width="24"
-                    height="24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                  >
-                    <path
-                      d="M19.4626 3.99415C16.7809 2.34923 14.4404 3.01211 13.0344 4.06801C12.4578 4.50096 12.1696 4.71743 12 4.71743C11.8304 4.71743 11.5422 4.50096 10.9656 4.06801C9.55962 3.01211 7.21909 2.34923 4.53744 3.99415C1.01807 6.15294 0.221721 13.2749 8.33953 19.2834C9.88572 20.4278 10.6588 21 12 21C13.3412 21 14.1143 20.4278 15.6605 19.2834C23.7783 13.2749 22.9819 6.15294 19.4626 3.99415Z"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-
-                  <p className="text-xs">{like}</p>
+              {tags && tags.length > 0 && (
+                <div className="flex justify-start items-center gap-2 flex-wrap">
+                  <ShowSkills skills={tags} />
                 </div>
-
-                <div className="gap-1 text-white inline-flex items-center rounded-lg bg-black p-2 hover:bg-gray-900 transition-all ease">
-                  <svg
-                    width="24"
-                    height="24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                  >
-                    <path
-                      d="M22 11.5667C22 16.8499 17.5222 21.1334 12 21.1334C11.3507 21.1343 10.7032 21.0742 10.0654 20.9545C9.60633 20.8682 9.37678 20.8251 9.21653 20.8496C9.05627 20.8741 8.82918 20.9948 8.37499 21.2364C7.09014 21.9197 5.59195 22.161 4.15111 21.893C4.69874 21.2194 5.07275 20.4112 5.23778 19.5448C5.33778 19.0148 5.09 18.5 4.71889 18.1231C3.03333 16.4115 2 14.1051 2 11.5667C2 6.28357 6.47778 2 12 2C17.5222 2 22 6.28357 22 11.5667Z"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M11.9955 12H12.0045M15.991 12H16M8 12H8.00897"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-
-                  <p className="text-xs">{comment}</p>
-                </div>
-              </div>
+              )}
             </div>
           </div>
         </div>

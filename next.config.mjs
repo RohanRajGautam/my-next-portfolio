@@ -10,6 +10,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: '*.dev.to',
       },
+      {
+        protocol: 'https',
+        hostname: 'rrg.com.np',
+      },
     ]
   }
 };
