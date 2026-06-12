@@ -24,7 +24,7 @@ const CV = () => (
       </div>
 
       <iframe
-        src="/rohan_cv.pdf"
+        src="/rohan_cv.pdf#navpanes=0&view=FitH"
         title="Rohan Raj Gautam - CV"
         className="mt-8 h-[80vh] w-full rounded-md border border-border"
       />

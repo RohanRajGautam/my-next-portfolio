@@ -1,4 +1,4 @@
-import '../../styles/globals.css';
+import '../styles/globals.css';
 import type { Metadata } from 'next';
 import clsx from 'clsx';
 import local from 'next/font/local';
@@ -6,17 +6,18 @@ import { Bricolage_Grotesque, JetBrains_Mono } from 'next/font/google';
 import Header from '@/components/ui/Header';
 import Footer from '@/components/ui/Footer';
 import StarfieldBackground from '@/components/ui/StarfieldBackground';
+import SmoothScroll from '@/components/ui/SmoothScroll';
 import GoogleAnalytics from '@/components/utils/GoogleAnalytics';
 
 const graphik = local({
   src: [
     {
-      path: '../../public/fonts/Graphik-Regular.ttf',
+      path: '../public/fonts/Graphik-Regular.ttf',
       weight: '400',
       style: 'normal'
     },
     {
-      path: '../../public/fonts/Graphik-Medium.ttf',
+      path: '../public/fonts/Graphik-Medium.ttf',
       weight: '600',
       style: 'normal'
     }
@@ -97,6 +98,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           <GoogleAnalytics ga_id={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
         ) : null}
 
+        <SmoothScroll />
         <StarfieldBackground />
 
         <a

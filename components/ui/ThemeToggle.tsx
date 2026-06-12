@@ -7,18 +7,35 @@ const ThemeToggle = () => {
     const root = document.documentElement;
     const next = root.dataset.theme === 'light' ? 'dark' : 'light';
 
-    // Cross-fade every themed color for one beat (see globals.css).
-    root.classList.add('theme-transitioning');
-    window.setTimeout(
-      () => root.classList.remove('theme-transitioning'),
-      350
-    );
+    const apply = () => {
+      root.dataset.theme = next;
+      try {
+        localStorage.setItem('theme', next);
+      } catch {
+        /* private mode */
+      }
+    };
 
-    root.dataset.theme = next;
-    try {
-      localStorage.setItem('theme', next);
-    } catch {
-      /* private mode */
+    const reduceMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches;
+    const doc = document as Document & {
+      startViewTransition?: (callback: () => void) => void;
+    };
+
+    if (reduceMotion) {
+      apply();
+    } else if (doc.startViewTransition) {
+      // One smooth viewport cross-fade instead of per-element transitions.
+      doc.startViewTransition(apply);
+    } else {
+      // Fallback: fade every themed color for one beat (see globals.css).
+      root.classList.add('theme-transitioning');
+      window.setTimeout(
+        () => root.classList.remove('theme-transitioning'),
+        550
+      );
+      apply();
     }
   };
 
