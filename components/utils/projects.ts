@@ -36,7 +36,7 @@ export const caseStudies: CaseStudy[] = [
         label: 'Google Play',
         href: 'https://play.google.com/store/apps/details?id=com.tirios.invest'
       },
-      { label: 'tirios.ai', href: 'https://www.tirios.ai/' }
+      { label: 'Visit site', href: 'https://www.tirios.ai/' }
     ]
   },
   {
@@ -55,9 +55,9 @@ export const caseStudies: CaseStudy[] = [
     problem:
       'An immersive-audio mobile app where the experience hinges on polished UI and seamless audio transitions.',
     role: 'Shipped UI features, audio transitions, and NestJS backend integrations for the React Native app.',
-    outcome: '4.8-star rating on the app stores.',
+    outcome: 'Immersive-audio app live on iOS and Android.',
     stack: ['React Native', 'TypeScript', 'NestJS', 'MongoDB'],
-    links: [{ label: 'luminateapp.io', href: 'https://www.luminateapp.io/' }]
+    links: [{ label: 'Visit site', href: 'https://www.luminateapp.io/' }]
   },
   {
     slug: 'ontourism-academy',
@@ -68,6 +68,84 @@ export const caseStudies: CaseStudy[] = [
     outcome:
       'Real-time academic social platform with messaging, notifications, and events.',
     stack: ['React', 'TypeScript', 'MongoDB', 'Firebase', 'PWA'],
-    links: [{ label: 'ontourism.academy', href: 'https://ontourism.academy/' }]
+    links: [{ label: 'Visit site', href: 'https://ontourism.academy/' }]
+  }
+];
+
+export type ArchiveProject = {
+  slug: string;
+  title: string;
+  stack: string[];
+  link: string;
+};
+
+// Earlier work — everything not told as a full case study above.
+export const moreProjects: ArchiveProject[] = [
+  {
+    slug: 'stockmore',
+    title: 'Stockmore',
+    stack: ['TypeScript', 'Next.js', 'Tailwind CSS', 'shadcn/ui'],
+    link: 'https://www.stockmore.com/'
+  },
+  {
+    slug: 'webpoint',
+    title: 'Webpoint',
+    stack: [
+      'TypeScript',
+      'Next.js',
+      'Zustand',
+      'Tailwind CSS',
+      'GSAP',
+      'Framer Motion',
+      'Apollo'
+    ],
+    link: 'https://webpoint.io/'
+  },
+  {
+    slug: 'lineage-journey',
+    title: 'Lineage Journey',
+    stack: [
+      'JavaScript',
+      'Gatsby',
+      'React',
+      'Apollo',
+      'Prismic',
+      'Node.js',
+      'Stripe',
+      'GraphQL'
+    ],
+    link: 'https://lineagejourney.com/'
+  },
+  {
+    slug: 'sharing-hope',
+    title: 'Sharing Hope',
+    stack: ['React', 'TypeScript', 'Next.js', 'Redux', 'Tailwind CSS', 'Firebase'],
+    link: 'https://sharinghope.com/'
+  },
+  {
+    slug: 'the-great-controversy',
+    title: 'The Great Controversy',
+    stack: [
+      'React',
+      'TypeScript',
+      'Next.js',
+      'Redux',
+      'Tailwind CSS',
+      'GSAP',
+      'Firebase'
+    ],
+    link: 'https://greatcontroversyproject.org/'
+  },
+  {
+    slug: 'damask-cakes',
+    title: 'Damask Cakes',
+    stack: ['React', 'TypeScript', 'Next.js', 'Stripe', 'SCSS'],
+    link: 'https://www.damaskcakes.com/'
+  },
+  {
+    slug: 'ciber',
+    title: 'CIBER',
+    stack: ['React', 'Python', 'Flask', 'Docker', 'Zustand'],
+    link: 'http://ciber.webpoint.io/'
   }
 ];

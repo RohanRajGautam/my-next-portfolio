@@ -30,12 +30,12 @@ const entries: Entry[] = [
     highlights: [
       <>
         Launched the Tirios Invest app on iOS and Android, used by thousands of
-        investors to buy, sell, and manage real-estate holdings, by
-        architecting the React Native codebase from scratch
+        investors to buy, sell, and manage real-estate holdings, by architecting
+        the React Native codebase from scratch
       </>,
       <>
-        Achieved <M>97%+</M> crash-free sessions and <M>40+</M> App Store /
-        Play Store releases by owning the full mobile lifecycle: architecture,
+        Achieved <M>97%+</M> crash-free sessions and <M>40+</M> App Store / Play
+        Store releases by owning the full mobile lifecycle: architecture,
         performance, CI/CD, and store submissions
       </>,
       <>
@@ -59,16 +59,15 @@ const entries: Entry[] = [
     highlights: [
       <>
         Delivered Ellen4All, a multilingual translation platform serving users
-        in <M>100+</M> languages (Next.js, Django, Celery, Redis,
-        Elasticsearch)
+        in <M>100+</M> languages (Next.js, Django, Celery, Redis, Elasticsearch)
       </>,
       <>
         Shipped UI features, audio transitions, and NestJS integrations for
-        Luminate, a <M>4.8-star</M> immersive-audio React Native app
+        Luminate, an immersive-audio React Native app
       </>,
       <>
-        Built a multilingual digital reading platform with React, Firebase,
-        and custom i18n
+        Built a multilingual digital reading platform with React, Firebase, and
+        custom i18n
       </>,
       <>
         Mentored <M>10+</M> junior and mid-level engineers via structured code
@@ -84,8 +83,8 @@ const entries: Entry[] = [
     location: 'Kathmandu',
     highlights: [
       <>
-        Shipped production features across React, Next.js, TypeScript,
-        Tailwind CSS with Django/Node.js REST APIs on PostgreSQL and MongoDB
+        Shipped production features across React, Next.js, TypeScript, Tailwind
+        CSS with Django/Node.js REST APIs on PostgreSQL and MongoDB
       </>
     ]
   },
@@ -97,8 +96,8 @@ const entries: Entry[] = [
     highlights: [
       <>
         Built OnTourism Academy, a real-time academic social platform
-        (messaging, notifications, events, PWA) with React, TypeScript,
-        MongoDB, Firebase
+        (messaging, notifications, events, PWA) with React, TypeScript, MongoDB,
+        Firebase
       </>,
       <>
         Developed React frontends and Django REST APIs with PostgreSQL across

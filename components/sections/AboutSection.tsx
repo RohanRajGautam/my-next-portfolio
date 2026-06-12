@@ -26,8 +26,8 @@ const AboutSection = () => {
             releases at 97%+ crash-free sessions, on serverless NestJS/AWS
             backends that cut transaction failures by ~30%. Before that, at
             Webpoint Solutions, I delivered the Ellen4All translation platform
-            (100+ languages), shipped features for the 4.8-star Luminate audio
-            app, and mentored 10+ engineers through structured code reviews.
+            (100+ languages), shipped features for the Luminate audio app, and
+            mentored 10+ engineers through structured code reviews.
           </p>
 
           <p>

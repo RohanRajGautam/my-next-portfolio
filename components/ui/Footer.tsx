@@ -54,15 +54,13 @@ const Footer = () => {
           <div className="col-span-2 sm:col-span-1">
             <h2 className="mb-2 font-mono text-sm text-muted">Now</h2>
             <p className="py-2.5 text-sm text-muted">
-              Lead Software Engineer at Tirios, working remotely from
-              Kathmandu.
+              Lead Software Engineer at Tirios, working remotely from Kathmandu.
             </p>
           </div>
         </div>
 
         <p className="mt-12 border-t border-border pt-6 font-mono text-sm text-muted">
           © {new Date().getFullYear()} Rohan Raj Gautam{' '}
-          <span aria-hidden="true">·</span> built with Next.js{' '}
           <span aria-hidden="true">·</span> Kathmandu, Nepal
         </p>
       </div>
