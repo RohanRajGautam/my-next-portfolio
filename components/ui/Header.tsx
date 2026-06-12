@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
+import { motion, useReducedMotion } from 'framer-motion';
 import ThemeToggle from './ThemeToggle';
 
 export const navLinks = [
@@ -20,9 +21,15 @@ const isActivePath = (pathname: string, href: string) =>
 const Header = () => {
   const pathname = usePathname() ?? '/';
   const [menuOpen, setMenuOpen] = useState(false);
+  const reduceMotion = useReducedMotion();
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-border bg-bg/80 backdrop-blur">
+    // The layout never re-mounts, so this reveal plays once on first load.
+    <motion.header
+      initial={reduceMotion ? false : { opacity: 0, y: -8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
+      className="sticky top-0 z-40 w-full border-b border-border bg-bg/80 backdrop-blur">
       <nav
         aria-label="Main"
         className="mx-auto flex h-16 w-full max-w-content items-center justify-between px-6"
@@ -129,7 +136,7 @@ const Header = () => {
           })}
         </ul>
       )}
-    </header>
+    </motion.header>
   );
 };
 

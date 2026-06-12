@@ -4,6 +4,7 @@ import { Bricolage_Grotesque, JetBrains_Mono } from 'next/font/google';
 import '../styles/globals.css';
 import Header from '@/components/ui/Header';
 import Footer from '@/components/ui/Footer';
+import StarfieldBackground from '@/components/ui/StarfieldBackground';
 
 const graphik = local({
   src: [
@@ -39,8 +40,10 @@ const mono = JetBrains_Mono({
 const PageNotFound = () => {
   return (
     <div
-      className={`${graphik.variable} ${display.variable} ${mono.variable} flex min-h-screen flex-col bg-bg font-sans text-text`}
+      className={`${graphik.variable} ${display.variable} ${mono.variable} flex min-h-screen flex-col font-sans text-text`}
     >
+      <StarfieldBackground />
+
       <Header />
 
       <main className="flex flex-1 items-center">

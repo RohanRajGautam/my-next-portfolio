@@ -8,7 +8,7 @@ import heroImage from '../../public/rohan.jpg';
 const container = {
   hidden: {},
   show: {
-    transition: { staggerChildren: 0.08 }
+    transition: { staggerChildren: 0.08, delayChildren: 0.15 }
   }
 };
 

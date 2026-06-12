@@ -6,6 +6,14 @@ const ThemeToggle = () => {
   const toggle = () => {
     const root = document.documentElement;
     const next = root.dataset.theme === 'light' ? 'dark' : 'light';
+
+    // Cross-fade every themed color for one beat (see globals.css).
+    root.classList.add('theme-transitioning');
+    window.setTimeout(
+      () => root.classList.remove('theme-transitioning'),
+      350
+    );
+
     root.dataset.theme = next;
     try {
       localStorage.setItem('theme', next);

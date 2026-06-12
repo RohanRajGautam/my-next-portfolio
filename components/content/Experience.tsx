@@ -1,3 +1,7 @@
+'use client';
+
+import { useRef } from 'react';
+import { motion, useReducedMotion, useScroll } from 'framer-motion';
 import ExternalLink from '../ui/ExternalLink';
 import AnimationContainer from '../utils/AnimationContainer';
 import SectionHeading from '../utils/SectionHeading';
@@ -108,23 +112,44 @@ const entries: Entry[] = [
 ];
 
 const Experience = () => {
+  const railRef = useRef<HTMLDivElement>(null);
+  const reduceMotion = useReducedMotion();
+
+  const { scrollYProgress } = useScroll({
+    target: railRef,
+    offset: ['start 0.75', 'end 0.45']
+  });
+
   return (
     <AnimationContainer customClassName="w-full">
       <SectionHeading label="changelog" title="Experience" />
 
-      <div className="mt-8">
+      <div ref={railRef} className="relative mt-8">
+        <div
+          aria-hidden="true"
+          className="absolute bottom-0 left-0 top-1.5 w-px bg-border"
+        />
+
+        {!reduceMotion && (
+          <motion.div
+            aria-hidden="true"
+            style={{ scaleY: scrollYProgress }}
+            className="absolute bottom-0 left-0 top-1.5 w-px origin-top bg-gradient-to-b from-accent to-accent/20"
+          />
+        )}
+
         {entries.map((entry, index) => (
           <article
             key={`${entry.company}-${entry.period}`}
             className={
               index === entries.length - 1
                 ? 'relative pl-6'
-                : 'relative border-l border-border pb-12 pl-6'
+                : 'relative pb-12 pl-6'
             }
           >
             <span
               aria-hidden="true"
-              className={`absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full ${
+              className={`absolute -left-[4.5px] top-1.5 h-2.5 w-2.5 rounded-full ring-4 ring-bg ${
                 entry.current ? 'bg-accent' : 'bg-border'
               }`}
             />

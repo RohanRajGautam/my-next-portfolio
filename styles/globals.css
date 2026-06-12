@@ -84,6 +84,68 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
+html.theme-transitioning,
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+  transition: background-color var(--duration-base) var(--ease-out),
+    border-color var(--duration-base) var(--ease-out),
+    color var(--duration-base) var(--ease-out),
+    fill var(--duration-base) var(--ease-out),
+    stroke var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out) !important;
+}
+
+.star {
+  position: absolute;
+  border-radius: 9999px;
+  background-color: rgb(var(--color-text));
+  opacity: var(--star-max, 0.2);
+  animation: twinkle linear infinite;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.05;
+  }
+  50% {
+    opacity: var(--star-max, 0.3);
+  }
+}
+
+.comet {
+  position: absolute;
+  height: 1px;
+  width: 110px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(var(--color-accent) / 0.7)
+  );
+  rotate: 141deg; /* matches the translateX travel axis in @keyframes comet */
+  opacity: 0;
+  animation: comet linear infinite;
+}
+
+@keyframes comet {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  2% {
+    opacity: 0.6;
+  }
+  12% {
+    transform: translateX(70vw);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(70vw);
+    opacity: 0;
+  }
+}
+
 /* Remove Safari input shadow on mobile */
 input[type='text'],
 input[type='email'],

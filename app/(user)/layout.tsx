@@ -5,6 +5,7 @@ import local from 'next/font/local';
 import { Bricolage_Grotesque, JetBrains_Mono } from 'next/font/google';
 import Header from '@/components/ui/Header';
 import Footer from '@/components/ui/Footer';
+import StarfieldBackground from '@/components/ui/StarfieldBackground';
 import GoogleAnalytics from '@/components/utils/GoogleAnalytics';
 
 const graphik = local({
@@ -95,6 +96,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ? (
           <GoogleAnalytics ga_id={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
         ) : null}
+
+        <StarfieldBackground />
 
         <a
           href="#content"
