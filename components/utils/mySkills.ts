@@ -1,87 +1,44 @@
 export const skills = [
   {
     title: 'Languages',
-    techs: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'Python']
+    techs: ['TypeScript', 'JavaScript', 'Python', 'SQL', 'Bash']
   },
   {
-    title: 'Frameworks and libraries',
-    techs: ['React', 'Next.js', 'React Native', 'Node.js', 'Django']
-  },
-  {
-    title: 'JavaScript libraries',
+    title: 'Frontend',
     techs: [
-      'Redux',
-      'TanStack Query',
-      'Zustand',
-      'Formik',
-      'Jest',
-      'Storybook',
-      'GraphQL'
-    ]
-  },
-  {
-    title: 'Preprocessors, css style, component and motion libraries',
-    techs: [
-      'Pug',
-      'Scss',
-      'Sass',
-      'Less',
-      'Bootstrap',
-      'Tailwind',
-      'ChakraUI',
-      'MaterialUI',
-      'NextUI',
+      'React',
+      'React Native',
+      'Next.js',
+      'Tailwind CSS',
+      'React Query',
       'Framer Motion'
     ]
   },
   {
-    title: 'Backend stack',
+    title: 'Backend',
+    techs: ['Node.js', 'NestJS', 'Django', 'GraphQL', 'REST', 'Socket.IO']
+  },
+  {
+    title: 'Data & Cloud',
     techs: [
-      'SQL',
-      'noSQL',
-      'Node.js',
-      'Express.js',
-      'MongoDB',
-      'Mongoose',
       'PostgreSQL',
-      'Postman',
-      'Firebase',
-      'Sanity CMS',
-      'Flask',
-      'Django'
+      'MongoDB',
+      'DynamoDB',
+      'Redis',
+      'Elasticsearch',
+      'AWS (Lambda, API Gateway, S3, Amplify)',
+      'Docker',
+      'CI/CD'
     ]
   },
   {
-    title: 'Softwares and tools',
+    title: 'Practices',
     techs: [
-      'VS Code',
-      'Jira',
-      'Git',
-      'GitHub',
-      'Bitbucket',
-      'ESLint',
-      'Husky',
-      'Figma',
-      'Photoshop',
-      'WordPress',
-      'Socket.IO',
-      'AWS',
-      'Docker'
+      'Mobile release management (App Store / Play Store)',
+      'Agile/Scrum',
+      'Mentoring & code review'
     ]
-  },
-  {
-    title: 'Agile methodologies and coding principles',
-    techs: [
-      'GitFlow',
-      'SCRUM',
-      'Clean Code',
-      'SOLID',
-      'Clean Architecture',
-      'Pixel perfect'
-    ]
-  },
-  {
-    title: 'Currently or interest in learning...',
-    techs: ['Kubernetes', 'CI/CD', 'Terraform', 'Jenkins']
   }
 ];
+
+export const exploring = ['Kubernetes', 'Terraform'];

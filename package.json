@@ -2,7 +2,7 @@
   "name": "rrg",
   "version": "1.0.0",
   "private": true,
-  "description": "Hi there! I'm a Software Engineer residing in Kathmandu, Nepal, with experience in Mobile and Web Development. I thrive on clean architecture, pixel-perfect designs, and agile methodologies. Let's build something amazing together!",
+  "description": "Lead Software Engineer - Web & Mobile, 6+ years of experience. I take mobile and web products from first commit to production - React Native, Next.js, Nest.js, Python, Django, AWS.",
   "author": "Rohan Raj Gautam <hi@rrg.com.np>",
   "repository": "https://github.com/rohanrajgautam/my-next-portfolio",
   "license": "MIT",
@@ -13,20 +13,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.5",
-    "@mantine/carousel": "^5.10.3",
-    "@mantine/core": "^5.10.3",
-    "@mantine/hooks": "^5.10.3",
-    "@next/font": "^13.4.13",
     "@plaiceholder/next": "^3.0.0",
-    "@portabletext/react": "^2.0.0",
-    "@tailwindcss/typography": "^0.5.9",
     "@types/node": "18.11.18",
     "@types/react": "^18.2.56",
     "@types/react-dom": "^18.2.19",
-    "classnames": "^2.3.2",
     "clsx": "^1.2.1",
-    "embla-carousel-react": "^7.0.9",
     "framer-motion": "^8.5.4",
     "next": "^13.3.0",
     "nodemailer": "^7.0.12",
@@ -34,9 +25,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "sharp": "^0.31.3",
-    "styled-components": "^5.2.0",
-    "tailwindcss": "^3.2.4",
-    "use-delayed-render": "^0.0.7"
+    "tailwindcss": "^3.2.4"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^5.0.0",

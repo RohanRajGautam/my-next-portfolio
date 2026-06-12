@@ -15,41 +15,41 @@ const BlogPagination = ({
   if (totalPages <= 1) return null;
 
   const base =
-    'inline-flex items-center gap-2 rounded border border-gray-800 bg-black px-4 py-2 text-sm text-white transition-all ease';
+    'inline-flex h-11 items-center gap-2 rounded-sm border border-border px-4 text-sm text-text transition-colors duration-fast';
 
   return (
     <nav
-      className="w-full flex items-center justify-between gap-4 mt-4"
+      className="mt-12 flex w-full items-center justify-between gap-4"
       aria-label="Blog pagination"
     >
       {hasPrevPage && prevPage ? (
         <Link
           href={`/blogs?page=${prevPage}`}
-          className={`${base} hover:border-gray-500`}
+          className={`${base} hover:border-muted`}
           rel="prev"
         >
           ← Newer
         </Link>
       ) : (
-        <span className={`${base} opacity-40 cursor-not-allowed`} aria-disabled>
+        <span className={`${base} cursor-not-allowed opacity-40`} aria-disabled>
           ← Newer
         </span>
       )}
 
-      <span className="text-sm text-gray-500">
-        Page {page} of {totalPages}
+      <span className="font-mono text-sm text-muted">
+        {page} / {totalPages}
       </span>
 
       {hasNextPage && nextPage ? (
         <Link
           href={`/blogs?page=${nextPage}`}
-          className={`${base} hover:border-gray-500`}
+          className={`${base} hover:border-muted`}
           rel="next"
         >
           Older →
         </Link>
       ) : (
-        <span className={`${base} opacity-40 cursor-not-allowed`} aria-disabled>
+        <span className={`${base} cursor-not-allowed opacity-40`} aria-disabled>
           Older →
         </span>
       )}

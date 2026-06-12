@@ -1,33 +1,88 @@
+'use client';
+
 import Image from 'next/image';
-import AnimationContainer from '../utils/AnimationContainer';
+import Link from 'next/link';
+import { motion, useReducedMotion } from 'framer-motion';
 import heroImage from '../../public/rohan.jpg';
 
+const container = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.08 }
+  }
+};
+
+const item = {
+  hidden: { opacity: 0, y: 12 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.32, 0.72, 0, 1] }
+  }
+};
+
 const Hero = () => {
+  const reduceMotion = useReducedMotion();
+
   return (
-    <div className="w-full flex justify-between flex-col-reverse lg:flex-row items-center">
-      <AnimationContainer customClassName="flex flex-col items-center justify-between lg:items-start p-0 lg:pr-8">
-        <h1 className="font-bold text-3xl lg:text-5xl text-center lg:text-start tracking-tight mb-3 text-white mx-auto lg:mx-0">
+    <motion.section
+      variants={container}
+      initial={reduceMotion ? false : 'hidden'}
+      animate="show"
+      className="flex w-full flex-col-reverse items-start justify-between gap-8 pb-20 pt-8 md:flex-row md:pt-16"
+    >
+      <div className="flex max-w-[60ch] flex-col items-start">
+        <motion.h1
+          variants={item}
+          className="font-display text-2xl font-bold text-text md:text-3xl"
+        >
           Rohan Raj Gautam
-        </h1>
+        </motion.h1>
 
-        <h2 className="flex items-center gap-2 text-1xl lg:text-1xl text-gray-200 mb-8 mx-auto lg:mx-0">
-          Software Engineer (Web & Mobile)
-        </h2>
-      </AnimationContainer>
+        <motion.p variants={item} className="mt-3 text-md text-text">
+          Lead Software Engineer{' '}
+          <span aria-hidden="true" className="text-accent">
+            ·
+          </span>{' '}
+          Web &amp; Mobile
+        </motion.p>
 
-      <AnimationContainer customClassName="w-[80px] sm:w-[176px] relative mb-6 lg:mb-0">
+        <motion.p variants={item} className="mt-4 text-base text-muted">
+          I take mobile and web products from first commit to production - React
+          Native, Next.js, Nest.js, Python, Django, AWS.
+        </motion.p>
+
+        <motion.div variants={item} className="mt-8 flex flex-wrap gap-3">
+          <Link
+            href="/#work"
+            className="inline-flex h-11 items-center rounded-sm bg-text px-5 text-base font-semibold text-bg transition-opacity duration-fast hover:opacity-85"
+          >
+            View my work
+          </Link>
+
+          <a
+            href="/rohan_cv.pdf"
+            download="rohan_cv.pdf"
+            className="inline-flex h-11 items-center rounded-sm border border-border px-5 text-base text-text transition-colors duration-fast hover:border-muted"
+          >
+            Download CV
+          </a>
+        </motion.div>
+      </div>
+
+      <motion.div variants={item} className="shrink-0">
         <Image
-          alt="Rohan Raj Gautam"
-          height={176}
-          width={176}
+          alt="Portrait of Rohan Raj Gautam"
+          height={112}
+          width={112}
           src={heroImage}
           placeholder="blur"
-          sizes="30vw"
+          sizes="112px"
           priority
-          className="rounded-[8px] filter backdrop-grayscale-0 hover:grayscale-10 transition ease"
+          className="rounded-md"
         />
-      </AnimationContainer>
-    </div>
+      </motion.div>
+    </motion.section>
   );
 };
 

@@ -1,11 +1,7 @@
 import Link from 'next/link';
 import local from 'next/font/local';
+import { Bricolage_Grotesque, JetBrains_Mono } from 'next/font/google';
 import '../styles/globals.css';
-import { motion } from 'framer-motion';
-import AnimationContainer from '@/components/utils/AnimationContainer';
-import SectionContainer from '@/components/utils/SectionContainer';
-import FlareCursor from '@/components/ui/FlareCursor';
-import CometStarsTrail from '@/components/ui/CometStarsTrail';
 import Header from '@/components/ui/Header';
 import Footer from '@/components/ui/Footer';
 
@@ -19,124 +15,63 @@ const graphik = local({
     {
       path: '../public/fonts/Graphik-Medium.ttf',
       weight: '600',
-      style: 'bold'
+      style: 'normal'
     }
   ],
   variable: '--font-graphik',
   display: 'swap'
 });
 
+const display = Bricolage_Grotesque({
+  subsets: ['latin'],
+  weight: ['600', '700'],
+  variable: '--font-display',
+  display: 'swap'
+});
+
+const mono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-mono',
+  display: 'swap'
+});
+
 const PageNotFound = () => {
   return (
-    <div className={`${graphik.variable} font-sans bg-[#080809] text-white min-h-screen flex flex-col`}>
+    <div
+      className={`${graphik.variable} ${display.variable} ${mono.variable} flex min-h-screen flex-col bg-bg font-sans text-text`}
+    >
       <Header />
-      
-      <main className="flex-grow flex items-center justify-center">
-        <FlareCursor />
-        <CometStarsTrail />
-        
-        <SectionContainer>
-          <div className="flex flex-col items-center justify-center w-full text-center relative py-12">
-            
-            {/* Cosmos Background Decor */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              {[...Array(15)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute bg-white rounded-full"
-                  initial={{ 
-                    x: Math.random() * 100 + "%", 
-                    y: Math.random() * 100 + "%", 
-                    scale: Math.random() * 0.5 + 0.5,
-                    opacity: Math.random() * 0.5 + 0.2
-                  }}
-                  animate={{
-                    opacity: [0.2, 0.8, 0.2],
-                    scale: [1, 1.2, 1],
-                  }}
-                  transition={{
-                    duration: Math.random() * 3 + 2,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                  style={{
-                    width: (Math.random() * 2 + 1) + 'px',
-                    height: (Math.random() * 2 + 1) + 'px',
-                  }}
-                />
-              ))}
-            </div>
 
-            <AnimationContainer customClassName="flex flex-col items-center z-10 w-full">
-              
-              {/* Animated Astronaut SVG */}
-              <motion.div 
-                animate={{ 
-                  y: [0, -20, 0],
-                  rotate: [0, 3, -3, 0]
-                }}
-                transition={{ 
-                  duration: 6, 
-                  repeat: Infinity, 
-                  ease: "easeInOut" 
-                }}
-                className="mb-10 w-48 h-48 md:w-64 md:h-64 text-gray-400 opacity-90 filter drop-shadow-[0_0_20px_rgba(255,255,255,0.1)]"
-              >
-                <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="100" cy="80" r="45" fill="url(#helmetGlow)" />
-                  <rect x="65" y="45" width="70" height="60" rx="30" stroke="currentColor" strokeWidth="3" />
-                  <rect x="75" y="55" width="50" height="30" rx="15" fill="currentColor" fillOpacity="0.05" stroke="currentColor" strokeWidth="1.5" />
-                  <path d="M70 105C70 105 55 110 50 140C45 170 60 180 60 180H140C140 180 155 170 150 140C145 110 130 105 130 105" stroke="currentColor" strokeWidth="3" />
-                  <rect x="65" y="105" width="70" height="40" rx="5" stroke="currentColor" strokeWidth="3" strokeDasharray="3 3" />
-                  <path d="M60 120L35 145" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-                  <path d="M140 120L165 145" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-                  <path d="M80 180L75 195" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-                  <path d="M120 180L125 195" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-                  <rect x="85" y="125" width="30" height="20" rx="3" fill="currentColor" fillOpacity="0.1" stroke="currentColor" strokeWidth="1" />
-                  <circle cx="92" cy="135" r="2" fill="#ef4444" className="animate-pulse" />
-                  <circle cx="100" cy="135" r="2" fill="#22c55e" className="animate-pulse" style={{ animationDelay: '0.5s' }} />
-                  <circle cx="108" cy="135" r="2" fill="#3b82f6" className="animate-pulse" style={{ animationDelay: '1s' }} />
-                  <defs>
-                    <radialGradient id="helmetGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" transform="translate(100 80) rotate(90) scale(45)">
-                      <stop stopColor="white" stopOpacity="0.15" />
-                      <stop offset="1" stopColor="white" stopOpacity="0" />
-                    </radialGradient>
-                  </defs>
-                </svg>
-              </motion.div>
+      <main className="flex flex-1 items-center">
+        <div className="mx-auto w-full max-w-content px-6 py-24">
+          <p className="font-mono text-sm text-accent">HTTP 404</p>
 
-              <h1 className="text-8xl md:text-9xl font-black text-white tracking-tighter mb-4 drop-shadow-2xl">
-                404
-              </h1>
-              
-              <h2 className="text-xl md:text-2xl font-bold text-gray-200 mb-6 tracking-[0.2em] uppercase">
-                Lost in the Void
-              </h2>
-              
-              <p className="text-gray-400 max-w-md mb-12 text-lg leading-relaxed px-6">
-                Houston, we have a problem. The page you&apos;re looking for has drifted far beyond our reach.
-              </p>
+          <h1 className="mt-2 font-display text-xl font-semibold text-text md:text-2xl">
+            Page not found
+          </h1>
 
-              <div className="flex flex-col sm:flex-row gap-5">
-                <Link
-                  href="/"
-                  className="px-8 py-4 font-bold text-black bg-white rounded-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] active:scale-95"
-                >
-                  Back to Earth
-                </Link>
-                
-                <button 
-                  onClick={() => window.history.back()}
-                  className="px-8 py-4 font-bold text-white border-2 border-gray-800 rounded-full transition-all duration-300 hover:border-gray-600 hover:bg-gray-900 active:scale-95"
-                >
-                  Go Back
-                </button>
-              </div>
-              
-            </AnimationContainer>
+          <p className="mt-4 max-w-[60ch] text-base text-muted">
+            This route doesn&apos;t exist - the link is broken or the page has
+            moved.
+          </p>
 
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              href="/"
+              className="inline-flex h-11 items-center rounded-sm bg-text px-5 text-base font-semibold text-bg transition-opacity duration-fast hover:opacity-85"
+            >
+              Back home
+            </Link>
+
+            <Link
+              href="/projects"
+              className="inline-flex h-11 items-center rounded-sm border border-border px-5 text-base text-text transition-colors duration-fast hover:border-muted"
+            >
+              See projects
+            </Link>
           </div>
-        </SectionContainer>
+        </div>
       </main>
 
       <Footer />

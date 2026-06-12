@@ -1,102 +1,73 @@
-export const allProjectsInfo = [
-  {
-    id: '1',
-    title: 'Tirios Mobile App',
-    des: '',
-    category: 'typescript - react native - ios - android - stripe - posthog - keychain - nest js - aws - plaid',
-    repo: '',
-    link: 'https://www.tirios.ai/',
-    image: '/projects/tirios.png'
-  },
-  {
-    id: '2',
-    title: 'Stockmore - Stock Photo Platform',
-    des: '',
-    category: 'typescript - next js - tailwind - shadcn',
-    repo: '',
-    link: 'https://www.stockmore.com/',
-    image: '/projects/stockmore.png'
-  },
-  {
-    id: '3',
-    title: 'OTS Academy',
-    des: '',
-    category: 'next js - typescript - mongodb - nivo - tailwind',
-    repo: '',
-    link: 'https://ontourism.academy/',
-    image: '/projects/ots.png'
-  },
-  {
-    id: '4',
-    title: 'Webpoint',
-    des: '',
-    category: 'typescript - next js - zustand - tailwind - gsap - lottie - framer motion - apollo',
-    repo: '',
-    link: 'https://webpoint.io/',
-    image: '/projects/webpoint.png'
-  },
-  {
-    id: '5',
-    title: 'Lineage Journey',
-    des: '',
-    category: 'javascript - gatsby - react - apollo - prismic - node.js - stripe - graphql',
-    repo: '',
-    link: 'https://lineagejourney.com/',
-    image: '/projects/lineage-journey.png'
-  },
-  {
-    id: '6',
-    title: 'Luminate Mobile App',
-    des: '',
-    category: 'typescript - react native - nest js - mongo db - android - ios',
-    repo: '',
-    link: 'https://www.luminateapp.io/',
-    image: '/projects/luminate.jpg'
-  },
-  {
-    id: '7',
-    title: 'Ellen4all Backend',
-    des: '',
-    category: 'django - postgres - python - docker - celery - redis - vue - nuxt js',
-    repo: '',
-    link: 'https://tegw.egwwritings.org/',
-    image: '/projects/ellen4all.png'
-  },
-  {
-    id: '8',
-    title: 'Sharing hope',
-    des: '',
-    category: 'react - typescript - next js - react - redux - tailwind - firebase',
-    repo: '',
-    link: 'https://sharinghope.com/',
-    image: '/projects/sharing-hope.png'
-  },
-  {
-    id: '9',
-    title: 'The Great Controversy',
-    des: '',
-    category: 'react - typescript - next js - redux - tailwind - gsap - firebase',
-    repo: '',
-    link: 'https://greatcontroversyproject.org/',
-    image: '/projects/great-controversy.png'
-  },
+export type CaseStudy = {
+  slug: string;
+  title: string;
+  flagship?: boolean;
+  problem: string;
+  role: string;
+  outcome: string;
+  stack: string[];
+  links: { label: string; href: string }[];
+};
 
+export const caseStudies: CaseStudy[] = [
   {
-    id: '10',
-    title: 'Damask Cakes',
-    des: '',
-    category: 'react - typescript - next js - stripe - scss',
-    repo: '',
-    link: 'https://www.damaskcakes.com/',
-    image: '/projects/damask-cakes.png'
+    slug: 'tirios-invest',
+    title: 'Tirios Invest',
+    flagship: true,
+    problem:
+      'Take a consumer fintech product - buying, selling, and managing real-estate holdings - from zero to the App Store and Play Store.',
+    role: 'Architected the React Native codebase from scratch and own the full mobile lifecycle: architecture, performance, CI/CD, and store submissions, plus serverless NestJS backends on AWS.',
+    outcome:
+      'Used by thousands of investors · 40+ store releases · 97%+ crash-free sessions · ~30% fewer transaction failures.',
+    stack: [
+      'React Native',
+      'TypeScript',
+      'NestJS',
+      'AWS Lambda',
+      'API Gateway',
+      'S3'
+    ],
+    links: [
+      {
+        label: 'App Store',
+        href: 'https://apps.apple.com/us/app/tirios-real-estate-investing/id6467650309'
+      },
+      {
+        label: 'Google Play',
+        href: 'https://play.google.com/store/apps/details?id=com.tirios.invest'
+      },
+      { label: 'tirios.ai', href: 'https://www.tirios.ai/' }
+    ]
   },
   {
-    id: '11',
-    title: 'CIBER',
-    des: '',
-    category: 'react - python - flask - docker - zustand',
-    repo: '',
-    link: 'http://ciber.webpoint.io/',
-    image: ''
+    slug: 'ellen4all',
+    title: 'Ellen4All',
+    problem:
+      'Run multilingual content editing and translation for a global audience on a single platform.',
+    role: 'Delivered the translation platform at Webpoint Solutions across frontend and backend.',
+    outcome: 'Serving users in 100+ languages.',
+    stack: ['Next.js', 'Django', 'Celery', 'Redis', 'Elasticsearch'],
+    links: [{ label: 'Visit site', href: 'https://tegw.egwwritings.org/' }]
   },
+  {
+    slug: 'luminate',
+    title: 'Luminate',
+    problem:
+      'An immersive-audio mobile app where the experience hinges on polished UI and seamless audio transitions.',
+    role: 'Shipped UI features, audio transitions, and NestJS backend integrations for the React Native app.',
+    outcome: '4.8-star rating on the app stores.',
+    stack: ['React Native', 'TypeScript', 'NestJS', 'MongoDB'],
+    links: [{ label: 'luminateapp.io', href: 'https://www.luminateapp.io/' }]
+  },
+  {
+    slug: 'ontourism-academy',
+    title: 'OnTourism Academy',
+    problem:
+      'Give an academic community one real-time place for messaging, notifications, and events.',
+    role: 'Built the platform end to end at Yotcha Services, delivered as an installable PWA.',
+    outcome:
+      'Real-time academic social platform with messaging, notifications, and events.',
+    stack: ['React', 'TypeScript', 'MongoDB', 'Firebase', 'PWA'],
+    links: [{ label: 'ontourism.academy', href: 'https://ontourism.academy/' }]
+  }
 ];

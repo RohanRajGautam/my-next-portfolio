@@ -1,14 +1,19 @@
+import type { Metadata } from 'next';
 import { BlogApiResponse } from '@/types';
 import CardBlog from '@/components/content/CardBlog';
 import BlogPagination from '@/components/content/BlogPagination';
 import SectionContainer from '@/components/utils/SectionContainer';
-import TitleSectionPageContainer from '@/components/utils/TitleSectionPageContainer';
+import SectionHeading from '@/components/utils/SectionHeading';
 import AnimationContainer from '@/components/utils/AnimationContainer';
+
+export const metadata: Metadata = {
+  title: 'Blog',
+  alternates: { canonical: '/blogs' }
+};
 
 const BLOG_API = 'https://rrg.com.np/api/blog';
 const BLOG_HOME = 'https://rrg.com.np/blog';
 
-// Two-column grid in the ~768px content container → 6 posts fills two rows.
 const POSTS_PER_PAGE = 6;
 
 const getPosts = async (page: number): Promise<BlogApiResponse> => {
@@ -39,52 +44,50 @@ const Blog = async ({ searchParams }: { searchParams?: { page?: string } }) => {
 
   return (
     <SectionContainer>
-      <div className="w-full flex flex-col gap-6">
-        <TitleSectionPageContainer title="Blog" />
+      <AnimationContainer customClassName="w-full">
+        <SectionHeading as="h1" label="notes" title="Blog" />
 
-        <AnimationContainer customClassName="w-full flex flex-col gap-5 mb-8">
-          <p className="w-full text-base text-gray-400">
-            Notes on software engineering, web performance, and the things I
-            learn while building. You can read every post on my{' '}
-            <a
-              href={BLOG_HOME}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white hover:underline transition-all ease"
-            >
-              blog
-            </a>
-            .
-          </p>
-        </AnimationContainer>
+        <p className="mt-6 max-w-[60ch] text-base text-muted">
+          Notes on software engineering, web performance, and the things I learn
+          while building. Every post lives on my{' '}
+          <a
+            href={BLOG_HOME}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-text underline decoration-border underline-offset-4 transition-colors duration-fast hover:decoration-accent"
+          >
+            blog
+          </a>
+          .
+        </p>
+      </AnimationContainer>
 
-        {!data || data.posts.length === 0 ? (
-          <p className="text-gray-400 text-center py-8">
-            {data
-              ? 'No posts here yet — check back soon.'
-              : "Couldn't load posts right now. Please try again later."}
-          </p>
-        ) : (
-          <>
-            <article className="w-full grid grid-cols-1 gap-6 mx-auto">
-              {data.posts.map((post) => (
-                <CardBlog
-                  key={post.slug}
-                  title={post.title}
-                  description={post.description}
-                  url={post.url}
-                  image={post.coverImage ?? post.ogImage}
-                  readingTime={post.readingTime}
-                  category={post.category}
-                  tags={post.tags}
-                />
-              ))}
-            </article>
+      {!data || data.posts.length === 0 ? (
+        <p className="py-12 text-base text-muted">
+          {data
+            ? 'No posts here yet - check back soon.'
+            : 'Couldn’t load posts right now. Please try again later.'}
+        </p>
+      ) : (
+        <>
+          <div className="mt-12 grid grid-cols-1 gap-6">
+            {data.posts.map((post) => (
+              <CardBlog
+                key={post.slug}
+                title={post.title}
+                description={post.description}
+                url={post.url}
+                image={post.coverImage ?? post.ogImage}
+                readingTime={post.readingTime}
+                category={post.category}
+                tags={post.tags}
+              />
+            ))}
+          </div>
 
-            <BlogPagination pagination={data.pagination} />
-          </>
-        )}
-      </div>
+          <BlogPagination pagination={data.pagination} />
+        </>
+      )}
     </SectionContainer>
   );
 };

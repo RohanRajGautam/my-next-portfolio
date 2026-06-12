@@ -1,53 +1,63 @@
-const { spacing, fontFamily } = require('tailwindcss/defaultTheme');
-
+// Theme values map 1:1 to the CSS custom properties declared in
+// styles/globals.css - change tokens there, not here.
 module.exports = {
-  content: ['./pages/**/*.tsx', './components/**/*.tsx', './layouts/**/*.tsx'],
+  content: ['./app/**/*.tsx', './pages/**/*.tsx', './components/**/*.tsx'],
   theme: {
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      bg: 'rgb(var(--color-bg) / <alpha-value>)',
+      surface: 'rgb(var(--color-surface) / <alpha-value>)',
+      text: 'rgb(var(--color-text) / <alpha-value>)',
+      muted: 'rgb(var(--color-muted) / <alpha-value>)',
+      accent: 'rgb(var(--color-accent) / <alpha-value>)',
+      border: 'rgb(var(--color-border) / <alpha-value>)'
+    },
+    fontFamily: {
+      sans: ['var(--font-graphik)', 'system-ui', 'sans-serif'],
+      display: ['var(--font-display)', 'var(--font-graphik)', 'sans-serif'],
+      mono: ['var(--font-mono)', 'ui-monospace', 'SFMono-Regular', 'monospace']
+    },
+    fontSize: {
+      sm: ['var(--text-sm)', { lineHeight: '1.5' }],
+      base: ['var(--text-base)', { lineHeight: '1.6' }],
+      md: ['var(--text-md)', { lineHeight: '1.5' }],
+      lg: ['var(--text-lg)', { lineHeight: '1.3' }],
+      xl: ['var(--text-xl)', { lineHeight: '1.2', letterSpacing: '-0.015em' }],
+      '2xl': [
+        'var(--text-2xl)',
+        { lineHeight: '1.15', letterSpacing: '-0.02em' }
+      ],
+      '3xl': [
+        'var(--text-3xl)',
+        { lineHeight: '1.1', letterSpacing: '-0.02em' }
+      ]
+    },
+    borderRadius: {
+      none: '0',
+      sm: 'var(--radius-sm)',
+      DEFAULT: 'var(--radius-sm)',
+      md: 'var(--radius-md)',
+      full: '9999px'
+    },
+    boxShadow: {
+      none: 'none',
+      1: 'var(--shadow-1)',
+      2: 'var(--shadow-2)'
+    },
+    transitionTimingFunction: {
+      DEFAULT: 'var(--ease-out)'
+    },
+    transitionDuration: {
+      fast: 'var(--duration-fast)',
+      DEFAULT: 'var(--duration-base)',
+      slow: 'var(--duration-slow)'
+    },
     extend: {
-      colors: {
-        'blue-opaque': 'rgb(13 42 148 / 18%)',
-        gray: {
-          0: '#fff',
-          100: '#fafafa',
-          200: '#eaeaea',
-          300: '#999999',
-          400: '#d4d4d4',
-          500: '#666666',
-          600: '#444444',
-          700: '#333333',
-          800: '#222222',
-          900: '#111010'
-        }
-      },
-      fontFamily: {
-        sans: ['var(--font-graphik)'],
-      },
-      typography: (theme) => ({
-        DEFAULT: {
-          css: {
-            color: theme('colors.gray.700'),
-            a: {
-              color: theme('colors.blue.500'),
-              '&:hover': {
-                color: theme('colors.blue.700')
-              },
-              code: { color: theme('colors.blue.400') }
-            },
-            'h2,h3,h4': {
-              'scroll-margin-top': spacing[32]
-            },
-            thead: {
-              borderBottomColor: theme('colors.gray.200')
-            },
-            code: { color: theme('colors.pink.500') },
-            'blockquote p:first-of-type::before': false,
-            'blockquote p:last-of-type::after': false
-          }
-        },
-      })
+      maxWidth: {
+        content: '45rem' // single reading column, ~66ch at 16px body
+      }
     }
   },
-  plugins: [
-    require('@tailwindcss/typography')
-  ]
+  plugins: []
 };
