@@ -82,7 +82,7 @@ export const metadata: Metadata = {
 };
 
 // Resolve the theme before first paint so neither theme flashes.
-const themeScript = `(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'}document.documentElement.dataset.theme=t}catch(e){}})()`;
+const themeScript = `(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t='dark'}document.documentElement.dataset.theme=t}catch(e){}})()`;
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (

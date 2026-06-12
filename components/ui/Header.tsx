@@ -29,18 +29,21 @@ const Header = () => {
       initial={reduceMotion ? false : { opacity: 0, y: -8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
-      className="sticky top-0 z-40 w-full border-b border-border bg-bg/80 backdrop-blur">
+      className="sticky top-0 z-40 w-full border-b border-border bg-bg/80 backdrop-blur"
+    >
       <nav
         aria-label="Main"
         className="mx-auto flex h-16 w-full max-w-content items-center justify-between px-6"
       >
-        <Link
-          href="/"
+        <a
+          href="https://rrg.com.np"
+          target="_blank"
+          rel="noopener noreferrer"
           className="flex h-11 items-center font-mono text-base font-medium text-text"
           onClick={() => setMenuOpen(false)}
         >
           rrg<span className="text-accent">()</span>
-        </Link>
+        </a>
 
         <div className="flex items-center gap-1">
           <ul className="hidden items-center gap-1 md:flex">
