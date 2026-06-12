@@ -1,30 +1,17 @@
-'use client';
-
-import { Badge } from '@mantine/core';
-
 const ShowSkills = ({ skills }: { skills: string | string[] }) => {
-  if (skills instanceof Array) {
-    return (
-      <>
-        {skills.map((skill) => (
-          <Badge
-            key={skill}
-            color="dark"
-            size="lg"
-            radius="xs"
-            variant="filled"
-          >
-            {skill}
-          </Badge>
-        ))}
-      </>
-    );
-  }
+  const list = Array.isArray(skills) ? skills : [skills];
 
   return (
-    <Badge color="dark" size="lg" radius="xs" variant="filled">
-      {skills}
-    </Badge>
+    <>
+      {list.map((skill) => (
+        <span
+          key={skill}
+          className="inline-flex items-center rounded-sm border border-border bg-surface px-2.5 py-1 font-mono text-sm text-muted"
+        >
+          {skill}
+        </span>
+      ))}
+    </>
   );
 };
 

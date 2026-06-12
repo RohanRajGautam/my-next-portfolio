@@ -1,20 +1,38 @@
 'use client';
 
-import { useState, FormEvent, ChangeEvent } from 'react';
+import { useState, FormEvent, ChangeEvent, FocusEvent } from 'react';
 import AnimationContainer from '../utils/AnimationContainer';
+import SectionHeading from '../utils/SectionHeading';
 
 interface FormData {
   name: string;
   email: string;
   phone: string;
   message: string;
-  honeypot: string; // Hidden field to catch bots
+  honeypot: string; // hidden field to catch bots
 }
+
+type FieldErrors = Partial<Record<'name' | 'email' | 'message', string>>;
 
 interface FormStatus {
   type: 'idle' | 'success' | 'error';
   message: string;
 }
+
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const validateField = (name: string, value: string): string | undefined => {
+  if (name === 'name' && !value.trim()) return 'Please enter your name.';
+  if (name === 'email') {
+    if (!value.trim()) return 'Please enter your email.';
+    if (!EMAIL_PATTERN.test(value)) return 'Please enter a valid email.';
+  }
+  if (name === 'message' && !value.trim()) return 'Please add a short message.';
+  return undefined;
+};
+
+const inputStyle =
+  'w-full rounded-sm border border-border bg-surface p-3 text-base text-text placeholder:text-muted/70 transition-colors duration-fast focus:border-muted disabled:opacity-50';
 
 const ContactMe = () => {
   const [formData, setFormData] = useState<FormData>({
@@ -22,280 +40,231 @@ const ContactMe = () => {
     email: '',
     phone: '',
     message: '',
-    honeypot: '', // Honeypot field - should remain empty
+    honeypot: ''
   });
 
+  const [errors, setErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState<FormStatus>({
     type: 'idle',
-    message: '',
+    message: ''
   });
-
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Handle input changes
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-    // Clear status message when user starts typing
-    if (status.type !== 'idle') {
-      setStatus({ type: 'idle', message: '' });
+    setFormData((prev) => ({ ...prev, [name]: value }));
+
+    if (errors[name as keyof FieldErrors]) {
+      setErrors((prev) => ({ ...prev, [name]: validateField(name, value) }));
     }
+    if (status.type !== 'idle') setStatus({ type: 'idle', message: '' });
   };
 
-  // Handle form submission
+  const handleBlur = (
+    e: FocusEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setErrors((prev) => ({ ...prev, [name]: validateField(name, value) }));
+  };
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    const nextErrors: FieldErrors = {
+      name: validateField('name', formData.name),
+      email: validateField('email', formData.email),
+      message: validateField('message', formData.message)
+    };
+    setErrors(nextErrors);
+    if (Object.values(nextErrors).some(Boolean)) return;
+
     setIsSubmitting(true);
     setStatus({ type: 'idle', message: '' });
 
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
       });
 
       const data = await response.json();
 
       if (response.ok && data.success) {
-        // Success - reset form and show success message
         setFormData({
           name: '',
           email: '',
           phone: '',
           message: '',
-          honeypot: '',
+          honeypot: ''
         });
         setStatus({
           type: 'success',
-          message: 'Thank you! Your message has been sent successfully.',
+          message: 'Thanks - your message is on its way.'
         });
       } else {
-        // Error - show error message
         setStatus({
           type: 'error',
-          message: data.error || 'Failed to send message. Please try again.',
+          message: data.error || 'Failed to send. Please try again.'
         });
       }
-    } catch (error) {
-      // Network or other error
+    } catch {
       setStatus({
         type: 'error',
-        message: 'Network error. Please check your connection and try again.',
+        message: 'Network error. Check your connection and try again.'
       });
     } finally {
       setIsSubmitting(false);
     }
   };
 
+  const errorText = (field: keyof FieldErrors) =>
+    errors[field] ? (
+      <p
+        id={`${field}-error`}
+        className="mt-1.5 text-sm text-accent"
+        role="alert"
+      >
+        {errors[field]}
+      </p>
+    ) : null;
+
   return (
     <AnimationContainer customClassName="w-full">
-      <h2
-        className="font-bold text-2xl md:text-2xl tracking-tight mb-8 text-white text-center lg:text-start"
-        id="contact"
+      <SectionHeading label="contact" title="Get in touch" id="contact" />
+
+      <p className="mt-6 text-base text-muted">
+        Building something in fintech, proptech, or mobile? Email{' '}
+        <a
+          href="mailto:hi@rrg.com.np"
+          className="font-mono text-sm text-text underline decoration-border underline-offset-4 transition-colors duration-fast hover:decoration-accent"
+        >
+          hi@rrg.com.np
+        </a>{' '}
+        or use the form.
+      </p>
+
+      <form
+        onSubmit={handleSubmit}
+        className="mt-8 flex flex-col gap-5"
+        noValidate
       >
-        Contact me
-      </h2>
-
-      <div className="w-full flex justify-between items-center flex-col mx-auto max-w-screen-xl">
-        <div className="w-full flex justify-between items-center flex-col lg:flex-row gap-6 mb-10">
-          <a
-            href="mailto:hi@rrg.com.np"
-            target="_blank"
-            rel="noreferrer"
-            className="w-full"
-          >
-            <div className="rounded border border-gray-800 hover:border-gray-900 bg-[#080809] p-4 shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] sm:p-6 transition ease">
-              <p className="font-bold text-1xl tracking-tight text-white text-start">
-                Email
-              </p>
-              <p className="text-base mt-2 text-gray-400">
-                hi@rrg.com.np
-              </p>
-            </div>
-          </a>
-
-          {/* <a
-            href="https://walink.co/2369d5"
-            target="_blank"
-            rel="noreferrer"
-            className="w-full"
-          >
-            <div className="rounded border border-gray-800 hover:border-gray-900 bg-[#080809] p-4 shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] sm:p-6 transition ease">
-              <p className="font-bold text-1xl tracking-tight text-white text-start">
-                Phone
-              </p>
-              <p className="text-base mt-2 text-gray-400">+977 986 182 86 33</p>
-            </div>
-          </a> */}
+        {/* Honeypot - hidden from people, visible to bots */}
+        <div className="absolute -left-[9999px]" aria-hidden="true">
+          <label htmlFor="honeypot">Leave this field empty</label>
+          <input
+            type="text"
+            id="honeypot"
+            name="honeypot"
+            value={formData.honeypot}
+            onChange={handleChange}
+            tabIndex={-1}
+            autoComplete="off"
+          />
         </div>
 
-        <div className="w-full flex justify-center items-center flex-col overflow-hidden">
-          <form
-            onSubmit={handleSubmit}
-            className="w-full space-y-4"
-            noValidate
-          >
-            {/* Honeypot field - hidden from users but visible to bots */}
-            <div style={{ position: 'absolute', left: '-9999px' }}>
-              <label htmlFor="honeypot">Leave this field empty</label>
-              <input
-                type="text"
-                id="honeypot"
-                name="honeypot"
-                value={formData.honeypot}
-                onChange={handleChange}
-                tabIndex={-1}
-                autoComplete="off"
-                aria-hidden="true"
-              />
-            </div>
+        <div>
+          <label htmlFor="name" className="mb-1.5 block text-sm text-muted">
+            Name
+          </label>
+          <input
+            className={inputStyle}
+            type="text"
+            id="name"
+            name="name"
+            autoComplete="name"
+            value={formData.name}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            required
+            aria-invalid={Boolean(errors.name)}
+            aria-describedby={errors.name ? 'name-error' : undefined}
+            disabled={isSubmitting}
+          />
+          {errorText('name')}
+        </div>
 
-            <div>
-              <label className="sr-only" htmlFor="name">
-                Name
-              </label>
-              <input
-                className="w-full rounded p-3 text-base outline-none border text-white bg-black border-gray-900 focus:border-gray-800 transition ease"
-                placeholder="Name"
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                disabled={isSubmitting}
-              />
-            </div>
-
-            <div className="grid grid-cols-1 gap-4 lg:gap-8 sm:grid-cols-2">
-              <div>
-                <label className="sr-only" htmlFor="email">
-                  Email
-                </label>
-                <input
-                  className="w-full rounded p-3 text-base outline-none border text-white bg-black border-gray-900 focus:border-gray-800 transition ease"
-                  placeholder="Email"
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  disabled={isSubmitting}
-                />
-              </div>
-
-              <div>
-                <label className="sr-only" htmlFor="phone">
-                  Phone
-                </label>
-                <input
-                  className="w-full rounded p-3 text-base outline-none border text-white bg-black border-gray-900 focus:border-gray-800 transition ease"
-                  placeholder="Phone"
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  disabled={isSubmitting}
-                />
-              </div>
-            </div>
-
-            <div>
-              <label className="sr-only" htmlFor="message">
-                Message
-              </label>
-              <textarea
-                className="w-full h-32 rounded p-3 text-base outline-none border text-white bg-black border-gray-900 focus:border-gray-800 transition ease"
-                placeholder="Message"
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                disabled={isSubmitting}
-              ></textarea>
-            </div>
-
-            {/* Status message */}
-            {status.type !== 'idle' && (
-              <div
-                className={`rounded p-4 text-sm ${
-                  status.type === 'success'
-                    ? 'bg-green-900/20 border border-green-800 text-green-300'
-                    : 'bg-red-900/20 border border-red-800 text-red-300'
-                }`}
-                role="alert"
-              >
-                {status.message}
-              </div>
-            )}
-
-            <button
-              type="submit"
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+          <div>
+            <label htmlFor="email" className="mb-1.5 block text-sm text-muted">
+              Email
+            </label>
+            <input
+              className={inputStyle}
+              type="email"
+              id="email"
+              name="email"
+              autoComplete="email"
+              value={formData.email}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              required
+              aria-invalid={Boolean(errors.email)}
+              aria-describedby={errors.email ? 'email-error' : undefined}
               disabled={isSubmitting}
-              className={`flex items-center justify-center rounded px-5 py-3 text-white bg-black hover:bg-gray-900 shadow-sm transition ease mx-auto ${
-                isSubmitting
-                  ? 'opacity-50 cursor-not-allowed'
-                  : 'hover:shadow-lg'
-              }`}
-            >
-              <span className="font-medium text-base">
-                {isSubmitting ? 'Sending...' : 'Send'}
-              </span>
+            />
+            {errorText('email')}
+          </div>
 
-              {!isSubmitting && (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="ml-3 h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M14 5l7 7m0 0l-7 7m7-7H3"
-                  />
-                </svg>
-              )}
-
-              {isSubmitting && (
-                <svg
-                  className="animate-spin ml-3 h-5 w-5"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                >
-                  <circle
-                    className="opacity-25"
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    strokeWidth="4"
-                  ></circle>
-                  <path
-                    className="opacity-75"
-                    fill="currentColor"
-                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                  ></path>
-                </svg>
-              )}
-            </button>
-          </form>
+          <div>
+            <label htmlFor="phone" className="mb-1.5 block text-sm text-muted">
+              Phone <span className="text-muted/70">(optional)</span>
+            </label>
+            <input
+              className={inputStyle}
+              type="tel"
+              id="phone"
+              name="phone"
+              autoComplete="tel"
+              value={formData.phone}
+              onChange={handleChange}
+              disabled={isSubmitting}
+            />
+          </div>
         </div>
-      </div>
+
+        <div>
+          <label htmlFor="message" className="mb-1.5 block text-sm text-muted">
+            Message
+          </label>
+          <textarea
+            className={`${inputStyle} h-32 resize-y`}
+            id="message"
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            required
+            aria-invalid={Boolean(errors.message)}
+            aria-describedby={errors.message ? 'message-error' : undefined}
+            disabled={isSubmitting}
+          />
+          {errorText('message')}
+        </div>
+
+        {status.type !== 'idle' && (
+          <p
+            className={`rounded-sm border p-4 text-sm ${
+              status.type === 'success'
+                ? 'border-border bg-surface text-text'
+                : 'border-accent/40 bg-surface text-text'
+            }`}
+            role="status"
+          >
+            {status.message}
+          </p>
+        )}
+
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="inline-flex h-11 items-center justify-center self-start rounded-sm bg-text px-6 text-base font-semibold text-bg transition-opacity duration-fast hover:opacity-85 disabled:cursor-not-allowed disabled:opacity-50"
+        >
+          {isSubmitting ? 'Sending…' : 'Send message'}
+        </button>
+      </form>
     </AnimationContainer>
   );
 };

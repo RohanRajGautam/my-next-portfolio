@@ -43,12 +43,12 @@ const CardBlog = async ({
   const { base64, img } = await getImage(image);
 
   return (
-    <AnimationContainer customClassName="w-full h-full flex flex-col justify-start items-center rounded border border-gray-800 hover:border-gray-500 bg-[#080809] shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all ease overflow-hidden">
+    <AnimationContainer customClassName="w-full h-full flex flex-col justify-start items-center rounded-md border border-border bg-surface shadow-1 hover:shadow-2 transition-shadow duration-base overflow-hidden">
       <ExternalLink
         href={url}
         customClassName="w-full h-full flex flex-col text-inherit"
       >
-        <div className="w-full h-full flex flex-col justify-start items-start rounded gap-3">
+        <div className="w-full h-full flex flex-col justify-start items-start gap-3">
           <Image
             src={img.src || '/rrg.png'}
             height={img.height}
@@ -59,16 +59,16 @@ const CardBlog = async ({
             blurDataURL={base64}
           />
 
-          <div className="p-4 flex flex-col gap-3 flex-1">
-            <h3 className="text-xl lg:text-2xl font-medium text-white">
+          <div className="p-6 flex flex-col gap-3 flex-1">
+            <h3 className="font-display text-md font-semibold text-text">
               {title}
             </h3>
 
-            <p className="text-base text-gray-400 flex-1">{description}</p>
+            <p className="text-base text-muted flex-1">{description}</p>
 
             <div className="w-full flex flex-col gap-3">
               {(readingTime || category) && (
-                <div className="flex items-center gap-2 text-sm text-gray-500">
+                <div className="flex items-center gap-2 font-mono text-sm text-muted">
                   {readingTime && <span>{readingTime}</span>}
                   {readingTime && category && <span aria-hidden>·</span>}
                   {category && <span>{category}</span>}
