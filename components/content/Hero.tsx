@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
-import heroImage from '../../public/rohan.jpg';
+import heroImage from '../../public/rohan.png';
 
 const container = {
   hidden: {},
