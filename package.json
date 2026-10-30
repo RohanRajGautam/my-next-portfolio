@@ -6,6 +6,9 @@
   "author": "Rohan Raj Gautam <hi@rrg.com.np>",
   "repository": "https://github.com/rohanrajgautam/my-next-portfolio",
   "license": "MIT",
+  "engines": {
+    "node": "26.x"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
