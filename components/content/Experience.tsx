@@ -43,11 +43,6 @@ const entries: Entry[] = [
         performance, CI/CD, and store submissions
       </>,
       <>
-        Reduced transaction failures by <M>~30%</M> with serverless NestJS
-        backends on AWS (Lambda, API Gateway, S3) integrating payments,
-        authentication, and analytics
-      </>,
-      <>
         Scaled the platform from hundreds to thousands of users by shipping
         Next.js product features and conversion-optimized pages with product
         and growth teams

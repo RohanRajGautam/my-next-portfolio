@@ -18,7 +18,7 @@ export const caseStudies: CaseStudy[] = [
       'Take a consumer fintech product - buying, selling, and managing real-estate holdings - from zero to the App Store and Play Store.',
     role: 'Architected the React Native codebase from scratch and own the full mobile lifecycle: architecture, performance, CI/CD, and store submissions, plus serverless NestJS backends on AWS.',
     outcome:
-      'Used by thousands of investors · 40+ store releases · 97%+ crash-free sessions · ~30% fewer transaction failures.',
+      'Used by thousands of investors · 40+ store releases · 97%+ crash-free sessions.',
     stack: [
       'React Native',
       'TypeScript',

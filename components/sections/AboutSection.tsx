@@ -23,8 +23,7 @@ const AboutSection = () => {
           <p>
             At Tirios, I architected the Tirios Invest fintech app from scratch
             and now run its full mobile lifecycle: 40+ App Store and Play Store
-            releases at 97%+ crash-free sessions, on serverless NestJS/AWS
-            backends that cut transaction failures by ~30%. Before that, at
+            releases at 97%+ crash-free sessions. Before that, at
             Webpoint Solutions, I delivered the Ellen4All translation platform
             (100+ languages), shipped features for the Luminate audio
             app, led small cross-functional teams, and mentored junior and
