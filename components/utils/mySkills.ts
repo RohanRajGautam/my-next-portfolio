@@ -4,39 +4,50 @@ export const skills = [
     techs: ['TypeScript', 'JavaScript', 'Python', 'SQL', 'Bash']
   },
   {
-    title: 'Frontend',
+    title: 'Frameworks',
     techs: [
       'React',
       'React Native',
       'Next.js',
-      'Tailwind CSS',
-      'React Query',
-      'Framer Motion'
+      'NestJS',
+      'Node.js',
+      'Django',
+      'Flask',
+      'Celery',
+      'Tailwind CSS'
     ]
   },
   {
-    title: 'Backend',
-    techs: ['Node.js', 'NestJS', 'Django', 'GraphQL', 'REST', 'Socket.IO']
-  },
-  {
-    title: 'Data & Cloud',
+    title: 'Data',
     techs: [
       'PostgreSQL',
       'MongoDB',
       'DynamoDB',
+      'MySQL',
       'Redis',
       'Elasticsearch',
-      'AWS (Lambda, API Gateway, S3, Amplify)',
+      'Firebase',
+      'GraphQL'
+    ]
+  },
+  {
+    title: 'Cloud & Infra',
+    techs: [
+      'AWS (Lambda, API Gateway, EC2, S3, Amplify)',
       'Docker',
-      'CI/CD'
+      'Linux',
+      'CI/CD',
+      'Git'
     ]
   },
   {
     title: 'Practices',
     techs: [
-      'Mobile release management (App Store / Play Store)',
+      'Distributed system design',
+      'Mobile release engineering',
       'Agile/Scrum',
-      'Mentoring & code review'
+      'Code review',
+      'Mentoring'
     ]
   }
 ];

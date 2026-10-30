@@ -26,8 +26,9 @@ const AboutSection = () => {
             releases at 97%+ crash-free sessions, on serverless NestJS/AWS
             backends that cut transaction failures by ~30%. Before that, at
             Webpoint Solutions, I delivered the Ellen4All translation platform
-            (100+ languages), shipped features for the Luminate audio app, and
-            mentored 10+ engineers through structured code reviews.
+            (100+ languages), shipped features for the Luminate audio
+            app, led small cross-functional teams, and mentored junior and
+            mid-level engineers through structured code reviews.
           </p>
 
           <p>
@@ -38,21 +39,62 @@ const AboutSection = () => {
       </AnimationContainer>
 
       <AnimationContainer customClassName="mt-16 w-full">
+        <SectionHeading label="education" title="Education" />
+
+        <div className="mt-6 flex flex-col gap-5 text-base text-muted">
+          <p>
+            Bachelor of Information Management (BIM), Tribhuvan University -
+            KIST College of Management, Kathmandu (2017 - 2022). CGPA 3.68 /
+            4.00, First Division.
+          </p>
+
+          <p>
+            Merit scholarship for ranking first in my cohort in the third
+            semester, and First Place at The Grand IT Visual Quiz (2019).
+          </p>
+        </div>
+      </AnimationContainer>
+
+      <AnimationContainer customClassName="mt-16 w-full">
         <SectionHeading label="beyond work" title="Off the clock" />
 
         <div className="mt-6 flex flex-col gap-5 text-base text-muted">
           <p>
-            I&apos;m the President of the Rotaract Club of Metro City, leading
-            community programs on education and youth empowerment. I also
-            contribute to open source - lately{' '}
+            I&apos;m a founding member and board member of{' '}
             <ExternalLink
               href="https://jawafdehi.org"
               customClassName="inline text-text underline decoration-border underline-offset-4 transition-colors duration-fast hover:decoration-accent"
             >
-              jawafdehi.org
+              Jawafdehi
             </ExternalLink>
-            , a platform for documenting and tracking corruption cases to hold
-            public entities accountable.
+            , an open-source civic-tech platform that records and tracks
+            corruption cases in Nepal so the public can follow them from report
+            to resolution. I contributed to its early development and help set
+            engineering priorities and onboard volunteer contributors.
+          </p>
+
+          <p>
+            I&apos;m the President of the{' '}
+            <ExternalLink
+              href="https://rotaractmetrocity.org/"
+              customClassName="inline text-text underline decoration-border underline-offset-4 transition-colors duration-fast hover:decoration-accent"
+            >
+              Rotaract Club of Metro City
+            </ExternalLink>{' '}
+            (member since 2023), a Rotary-sponsored club of 30+ young
+            professionals, where I oversee community-service projects and
+            professional-development sessions.
+          </p>
+
+          <p>
+            In early 2023 I taught full-stack development at{' '}
+            <ExternalLink
+              href="https://kingswayacademy.io/"
+              customClassName="inline text-text underline decoration-border underline-offset-4 transition-colors duration-fast hover:decoration-accent"
+            >
+              Kingsway Academy
+            </ExternalLink>
+            , taking students from their first web page to a deployed project.
           </p>
 
           <p>

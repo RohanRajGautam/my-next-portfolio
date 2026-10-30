@@ -44,7 +44,7 @@ export const caseStudies: CaseStudy[] = [
     title: 'Ellen4All',
     problem:
       'Run multilingual content editing and translation for a global audience on a single platform.',
-    role: 'Delivered the translation platform at Webpoint Solutions across frontend and backend.',
+    role: 'Delivered the translation platform at Webpoint Solutions, building an asynchronous content pipeline behind a Next.js frontend.',
     outcome: 'Serving users in 100+ languages.',
     stack: ['Next.js', 'Django', 'Celery', 'Redis', 'Elasticsearch'],
     links: [{ label: 'Visit site', href: 'https://tegw.egwwritings.org/' }]
@@ -55,8 +55,8 @@ export const caseStudies: CaseStudy[] = [
     problem:
       'An immersive-audio mobile app where the experience hinges on polished UI and seamless audio transitions.',
     role: 'Shipped UI features, audio transitions, and NestJS backend integrations for the React Native app.',
-    outcome: 'Immersive-audio app live on iOS and Android.',
-    stack: ['React Native', 'TypeScript', 'NestJS', 'MongoDB'],
+    outcome: 'An immersive-audio app live on iOS and Android.',
+    stack: ['React Native', 'NestJS'],
     links: [{ label: 'Visit site', href: 'https://www.luminateapp.io/' }]
   },
   {
@@ -64,7 +64,7 @@ export const caseStudies: CaseStudy[] = [
     title: 'OnTourism Academy',
     problem:
       'Give an academic community one real-time place for messaging, notifications, and events.',
-    role: 'Built the platform end to end at Yotcha Services, delivered as an installable PWA.',
+    role: 'Built the platform end to end as a freelance project (2024 - 2025), delivered as an installable PWA.',
     outcome:
       'Real-time academic social platform with messaging, notifications, and events.',
     stack: ['React', 'TypeScript', 'MongoDB', 'Firebase', 'PWA'],
@@ -77,6 +77,7 @@ export type ArchiveProject = {
   title: string;
   stack: string[];
   link: string;
+  linkLabel?: string;
 };
 
 // Earlier work — everything not told as a full case study above.
@@ -144,8 +145,9 @@ export const moreProjects: ArchiveProject[] = [
   },
   {
     slug: 'ciber',
-    title: 'CIBER',
+    title: 'CIBER - web vulnerability scanner (final-year project)',
     stack: ['React', 'Python', 'Flask', 'Docker', 'Zustand'],
-    link: 'http://ciber.webpoint.io/'
+    link: 'https://github.com/RohanRajGautam/ciber',
+    linkLabel: 'View code'
   }
 ];

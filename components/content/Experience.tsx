@@ -25,7 +25,7 @@ type Entry = {
 
 const entries: Entry[] = [
   {
-    company: 'Tirios',
+    company: 'Tirios Corporation',
     url: 'https://www.tirios.ai/',
     role: 'Lead Software Engineer',
     period: 'Sep 2023 – Present',
@@ -49,46 +49,53 @@ const entries: Entry[] = [
       </>,
       <>
         Scaled the platform from hundreds to thousands of users by shipping
-        Next.js product features and conversion-optimized Webflow pages with
-        product and growth
+        Next.js product features and conversion-optimized pages with product
+        and growth teams
       </>
     ]
   },
   {
-    company: 'Webpoint Solutions',
+    company: 'Webpoint Solutions, LLC',
     url: 'https://webpoint.io/',
     role: 'Senior Software Engineer',
     period: 'Jun 2022 – Dec 2023',
-    location: 'Kathmandu',
+    location: 'Kathmandu, Nepal',
     highlights: [
       <>
         Delivered Ellen4All, a multilingual translation platform serving users
-        in <M>100+</M> languages (Next.js, Django, Celery, Redis, Elasticsearch)
+        in <M>100+</M> languages, building an asynchronous content pipeline
+        with Django, Celery, Redis, and Elasticsearch behind a Next.js frontend
       </>,
       <>
-        Shipped UI features, audio transitions, and NestJS integrations for
-        Luminate, an immersive-audio React Native app
+        Shipped UI features, audio transitions, and NestJS backend integrations
+        for Luminate, an immersive-audio React Native app on iOS
+        and Android
       </>,
       <>
-        Built a multilingual digital reading platform with React, Firebase, and
-        custom i18n
+        Led small cross-functional teams across multiple products and stacks,
+        owning delivery from requirements through production release
       </>,
       <>
-        Mentored <M>10+</M> junior and mid-level engineers via structured code
-        reviews and weekly knowledge-sharing
+        Mentored junior and mid-level engineers through structured code reviews
+        and weekly knowledge-sharing sessions
       </>
     ]
   },
   {
-    company: 'Webpoint Solutions',
+    company: 'Webpoint Solutions, LLC',
     url: 'https://webpoint.io/',
     role: 'Software Engineer',
     period: 'Mar 2021 – Jun 2022',
-    location: 'Kathmandu',
+    location: 'Kathmandu, Nepal',
     highlights: [
       <>
-        Shipped production features across React, Next.js, TypeScript, Tailwind
-        CSS with Django/Node.js REST APIs on PostgreSQL and MongoDB
+        Developed and maintained client web applications with React, Next.js,
+        TypeScript, and Tailwind CSS; built Django and Node.js REST APIs backed
+        by PostgreSQL and MongoDB
+      </>,
+      <>
+        Contributed to sprint planning, estimates, and retrospectives in Agile
+        teams
       </>
     ]
   },
@@ -96,16 +103,12 @@ const entries: Entry[] = [
     company: 'Yotcha Services Pvt. Ltd.',
     role: 'Associate Full-Stack Engineer',
     period: 'May 2020 – Apr 2021',
-    location: 'Kathmandu',
+    location: 'Kathmandu, Nepal',
     highlights: [
       <>
-        Built OnTourism Academy, a real-time academic social platform
-        (messaging, notifications, events, PWA) with React, TypeScript, MongoDB,
-        Firebase
-      </>,
-      <>
-        Developed React frontends and Django REST APIs with PostgreSQL across
-        the full delivery cycle
+        Developed full-stack web applications in React, TypeScript, Django, and
+        PostgreSQL, building REST APIs and delivering client features from
+        design through deployment
       </>
     ]
   }

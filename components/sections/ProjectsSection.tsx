@@ -34,7 +34,7 @@ const ProjectsSection = () => {
         <SectionHeading label="archive" title="More projects" />
 
         <ul className="mt-8">
-          {moreProjects.map(({ slug, title, stack, link }) => (
+          {moreProjects.map(({ slug, title, stack, link, linkLabel }) => (
             <li
               key={slug}
               className="flex flex-col gap-2 border-t border-border py-5 last:border-b sm:flex-row sm:items-center sm:justify-between sm:gap-6"
@@ -50,7 +50,7 @@ const ProjectsSection = () => {
                 href={link}
                 customClassName="shrink-0 self-start py-1 font-mono text-sm text-text underline decoration-border underline-offset-4 transition-colors duration-fast hover:decoration-accent sm:self-center"
               >
-                Visit site <span aria-hidden="true">↗</span>
+                {linkLabel ?? 'Visit site'} <span aria-hidden="true">↗</span>
               </ExternalLink>
             </li>
           ))}
