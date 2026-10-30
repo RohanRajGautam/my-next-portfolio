@@ -36,6 +36,7 @@
 
   /* motion */
   --ease-out: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
   --duration-fast: 150ms;
   --duration-base: 300ms;
   --duration-slow: 500ms;
@@ -102,17 +103,21 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
-/* Theme switch: browsers with the View Transitions API get one viewport
-   cross-fade… */
+/* Theme switch: browsers with the View Transitions API reveal the new theme
+   as a circle growing from the toggle (animated in ThemeToggle.tsx)… */
 ::view-transition-old(root),
 ::view-transition-new(root) {
-  animation-duration: var(--duration-slow);
-  animation-timing-function: var(--ease-out);
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-new(root) {
+  z-index: 1;
 }
 
 /* …others fall back to fading every themed color for one beat. */
 html.theme-transitioning,
-html.theme-transitioning *,
+html.theme-transitioning *:not(.theme-icon *),
 html.theme-transitioning *::before,
 html.theme-transitioning *::after {
   transition: background-color var(--duration-slow) var(--ease-out),
@@ -121,6 +126,110 @@ html.theme-transitioning *::after {
     fill var(--duration-slow) var(--ease-out),
     stroke var(--duration-slow) var(--ease-out),
     box-shadow var(--duration-slow) var(--ease-out) !important;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Theme toggle icon: moon (dark, the default) morphs into sun (light).
+   Every scaled shape pivots on its own fill-box center and the two
+   rotating layers are separate <svg> boxes, so no transform depends
+   on SVG transform-origin quirks.
+   ────────────────────────────────────────────────────────────── */
+.theme-icon__rays,
+.theme-icon__body {
+  transition: transform 700ms var(--ease-out);
+}
+
+.theme-icon__core,
+.theme-icon__ray,
+.theme-icon__star {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* moon: a larger core with the eclipse slid over it */
+.theme-icon__core {
+  transform: scale(1.5);
+  transition: transform 700ms var(--ease-spring);
+}
+
+.theme-icon__eclipse {
+  transform: translate(0, 0);
+  transition: transform 600ms var(--ease-out);
+}
+
+/* rays fold away while their layer turns */
+.theme-icon__rays {
+  transform: rotate(-90deg);
+}
+
+.theme-icon__ray {
+  opacity: 0;
+  transform: scale(0);
+  transition: transform 350ms var(--ease-out), opacity 250ms var(--ease-out);
+  transition-delay: calc(var(--i) * 20ms);
+}
+
+.theme-icon__star {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+  transition: transform 600ms var(--ease-spring), opacity 300ms var(--ease-out);
+  transition-delay: calc(350ms + var(--i) * 120ms);
+}
+
+.theme-icon__twinkle {
+  animation: twinkle 3.2s ease-in-out infinite;
+  animation-delay: calc(var(--i) * -1.4s);
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+/* sun: small core, eclipse moved clear, rays out one after another */
+[data-theme='light'] .theme-icon__core {
+  transform: scale(1);
+}
+
+[data-theme='light'] .theme-icon__eclipse {
+  transform: translate(9px, -9px);
+}
+
+[data-theme='light'] .theme-icon__rays {
+  transform: rotate(0deg);
+}
+
+[data-theme='light'] .theme-icon__ray {
+  opacity: 1;
+  transform: scale(1);
+  transition: transform 600ms var(--ease-spring), opacity 300ms var(--ease-out);
+  transition-delay: calc(200ms + var(--i) * 40ms);
+}
+
+[data-theme='light'] .theme-icon__star {
+  opacity: 0;
+  transform: scale(0) rotate(-90deg);
+  transition-delay: 0ms;
+}
+
+[data-theme='light'] .theme-icon__twinkle {
+  animation: none;
+}
+
+/* hover (real pointers only, so taps don't leave it stuck) */
+@media (hover: hover) {
+  :root:not([data-theme='light']) .theme-toggle:hover .theme-icon__body {
+    transform: rotate(-15deg);
+  }
+
+  [data-theme='light'] .theme-toggle:hover .theme-icon__rays {
+    transform: rotate(45deg);
+  }
 }
 
 .star {
